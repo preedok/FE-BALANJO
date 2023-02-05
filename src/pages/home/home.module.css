@@ -1,0 +1,138 @@
+.sidenav {
+  background-color: green;
+  width: 100%;
+}
+
+.titleLogo {
+  color: #db3022;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px !important;
+}
+
+.cstmSearch {
+  border-radius: 25px 0px 0px 25px !important;
+  border: 1px solid #8e8e93 !important;
+  border-right: none !important;
+  width: 400px;
+}
+
+.cstmSearch:focus {
+  outline: none !important;
+}
+
+.btnSearch {
+  border-radius: 0px 25px 25px 0px;
+  background-color: white;
+  border: 1px solid #8e8e93;
+  border-left: none;
+}
+
+.btnFilter {
+  background-color: white;
+  border-radius: 10px;
+  border-color: #8e8e93;
+}
+
+.btnCart {
+  background-color: white;
+  border: none;
+}
+
+.btnLogin {
+  background-color: #db3022;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  border-radius: 30px;
+}
+
+.btnSignup {
+  background-color: white;
+  font-size: 14px;
+  font-weight: 500;
+  color: #9b9b9b;
+  border: 1px solid #9b9b9b;
+  border-radius: 30px;
+}
+
+.main {
+  background-color: #ffffff;
+  height: max-content;
+  padding-bottom: 50px;
+}
+
+.topSwiper {
+  background-color: transparent;
+  height: max-content;
+  padding-bottom: 50px;
+}
+
+.categorySwiper {
+  background-color: transparent;
+  height: max-content;
+  padding-bottom: 50px;
+}
+
+.textTitlemain {
+  font-size: 34px;
+  font-weight: 700;
+  color: #222222;
+  margin-bottom: 0px !important;
+}
+
+.textSubmain {
+  font-size: 12px;
+  font-weight: 400;
+  color: #9b9b9b;
+  margin-bottom: 30px;
+}
+
+.newSide {
+  background-color: transparent;
+  height: max-content;
+  padding-bottom: 50px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 6px;
+}
+
+.textPricecard {
+  font-size: 16px;
+  font-weight: 500;
+  color: #db3022;
+  margin-bottom: 6px;
+}
+
+.textBrand {
+  font-size: 12px;
+  font-weight: 500;
+  color: #9b9b9b;
+  margin-bottom: 11px;
+}
+
+.textStar {
+  font-size: 10px;
+  font-weight: 400;
+  color: #9b9b9b;
+}
+.carousel{
+  margin-top: -70px;
+}
+
+@media only screen and (max-width: 720px) {
+  .cstmSearch {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carousel {
+    justify-content: center;
+  }
+}

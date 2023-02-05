@@ -1,0 +1,11 @@
+.App {
+  background-color: #f2f2f2;
+  color: #333;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #f2f2f2;
+}

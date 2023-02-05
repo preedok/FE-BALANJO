@@ -1,0 +1,83 @@
+.auth-section {
+    margin-top: 70px;
+}
+
+.logo-tikitoko {
+    font-weight: 700;
+    font-size: xx-large;
+    margin-top: 10px;
+    color: #DB3022;
+}
+
+.btn-customer {
+    text-align: center;
+    border-radius: 4px 0px 0px 4px;
+    color: #9B9B9B;
+    background-color: white;
+    border: solid 1px #9B9B9B;
+    border-right: none;
+    padding: 10px 25px 10px 25px;
+}
+
+.btn-seller {
+    border-left: none;
+    text-align: center;
+    border-radius: 0px 4px 4px 0px;
+    padding: 10px 40px 10px 40px;
+    color: #9B9B9B;
+    background-color: white;
+    border: solid 1px #9B9B9B;
+}
+
+.active {
+    color: white;
+    border: solid 1px #DB3022;
+    background-color: #DB3022;
+}
+
+.form-group {
+    border: 1px #9B9B9B;
+    color: #9B9B9B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group input {
+    border-radius: 4px;
+    border: solid 1px #9B9B9B;
+    width: 300px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.form-group input::placeholder {
+    color: #9B9B9B;
+}
+
+.form-button {
+    font-size: 15px;
+    border: none;
+    background-color: white;
+    color: #DB3022;
+    display: flex;
+    justify-content: right;
+}
+
+.form-login {
+    color: white;
+    font-weight: 400;
+    border: none;
+    background-color: #DB3022;
+    border-radius: 25px;
+    width: 300px;
+    padding: 10px 0px 10px 0px;
+}
+
+.button-register-now {
+    border: none;
+    background-color: white;
+    color: #DB3022;
+    padding-left: 0;
+}

@@ -1,0 +1,534 @@
+.containerCustomNavbarSeller {
+  background: #ffffff;
+  box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
+  height: 80px;
+}
+
+.imgProfileNavbar {
+  height: 30px;
+  width: 30px;
+  background-color: #9b9b9b;
+  border-radius: 100%;
+}
+
+.nameLogo {
+  color: #db3022;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 20px;
+  margin-top: 16px;
+  margin-left: -20px;
+}
+
+.containerFluidCustom {
+  margin-top: 80px;
+}
+
+.containerSatu {
+  padding: 0px !important;
+}
+
+.containerProfileSideLeft {
+  background: #ffffff;
+  height: auto;
+  padding: 30px;
+  padding-left: 125px !important;
+}
+
+.bgImgLeft {
+  height: 65px;
+  width: 65px;
+  border-radius: 100%;
+  background-color: #9b9b9b;
+  border: 2px solid red;
+}
+
+.imgLeft {
+  height: 50px;
+  width: 50px;
+}
+
+.buttonEditProfile button {
+  border: none;
+  background: #ffffff;
+}
+
+.btnStore {
+  border: none;
+  background: #ffffff;
+}
+
+.bgHome {
+  background: #456bf3;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+.iconHome {
+  height: 25px;
+  width: 25px;
+  padding-top: 7px;
+  padding-right: 1px;
+}
+
+.collapseStore {
+  padding-left: 70px;
+}
+
+.bgProduct {
+  background-color: #f36f45;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+.bgOrder {
+  background: #f3456f;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+}
+
+.containerDua {
+  padding: 0px !important;
+}
+
+.containerProfileSideRight {
+  background: #f5f5f5;
+  height: auto;
+  padding: 30px;
+  margin: 0px !important;
+  padding-bottom: 50px !important;
+}
+
+.containerCardStoreProfile {
+  background: #ffffff;
+  border-radius: 4px;
+  height: auto;
+}
+
+.containerTitle {
+  padding: 25px;
+}
+
+hr {
+  border: 1px solid #d4d4d4;
+}
+
+.containerMain {
+  padding-top: 0px !important;
+  padding: 25px;
+  padding-bottom: 40px !important;
+}
+
+.containerStoreProduct {
+  border-right: 1px solid #d4d4d4;
+  height: auto;
+}
+
+.inputStoreProfile {
+  width: 90%;
+  height: 50px;
+  border: 1px solid #c2c2c2;
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  padding: 10px;
+}
+
+textarea {
+  width: 90%;
+  resize: none !important;
+  border: 1px solid #c2c2c2;
+  filter: drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  padding: 10px;
+  height: 120px;
+}
+
+.containePictureUser {
+  height: 120px;
+  width: 120px;
+  background-color: #9b9b9b;
+  border-radius: 100%;
+  margin-left: 85px;
+}
+
+.choicePicture {
+  border: 1px solid #9b9b9b;
+  border-radius: 24px;
+  color: #9b9b9b;
+  background-color: white;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.img {
+  height: 120px;
+  width: 120px;
+}
+
+.buttonSaveProfile {
+  background: #db3022;
+  border-radius: 25px;
+  color: white;
+  border: none;
+  height: 50px;
+  width: 100px;
+}
+
+.containerCardMyProduct {
+  height: auto;
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  padding-bottom: 40px !important;
+}
+
+.containerTitleMyProduct {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.searchMyProduct {
+  background: none;
+  border: none;
+  border-radius: 23px;
+  width: 300px;
+  margin-left: -20px;
+  height: 50px;
+}
+
+.containerSearch {
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 23px;
+  width: 348px;
+  margin: 0px !important;
+}
+
+.containerAllItem {
+  height: 300px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.TitleAllItem {
+  background: #f7f7f7;
+  border-radius: 3px 3px 0px 0px;
+  height: 50px;
+  padding: 12px;
+}
+
+.deleteProduct {
+  border: none;
+  background-color: red;
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: white;
+  border-radius: 7px;
+  height: 35px;
+}
+
+.updateProduct {
+  border: none;
+  background-color: yellow;
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: black;
+  border-radius: 7px;
+  height: 35px;
+}
+
+.bgPaid {
+  border: none;
+  background-color: rgb(12, 255, 4);
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: white;
+  border-radius: 7px;
+  height: 35px;
+}
+
+.containerMainAllItem {
+  width: 100%;
+}
+
+.containerMainMyProduct {
+  width: 100%;
+}
+
+.inputUpdateProduct {
+  border: 1px solid #9b9b9b;
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+}
+
+.containerStockUpdate {
+  border: 1px solid #9b9b9b;
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 100%;
+  background: #ffffff;
+}
+
+.inputStockUpdate {
+  border: none;
+  background: #ffffff;
+  width: 380px;
+  border-radius: 4px;
+  height: 50px;
+}
+
+.buttonFilter {
+  border: none;
+  background-color: rgb(5, 197, 255);
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: white;
+  border-radius: 7px;
+  width: 100px;
+  height: 35px;
+}
+
+.selectCategory {
+  border: 1px solid #9b9b9b;
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+}
+
+.containerCardInventory {
+  height: auto;
+  background: #ffffff;
+  padding: 20px;
+  padding-bottom: 40px !important;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.inputInventory {
+  border: 1px solid #9b9b9b;
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+}
+
+.containerItemDetails {
+  margin-top: 20px;
+  height: auto;
+  background: #ffffff;
+  padding: 20px;
+  padding-bottom: 40px !important;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.containerStock {
+  border: 1px solid #9b9b9b;
+  filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 400px;
+  background: #ffffff;
+}
+
+.inputStock {
+  border: none;
+  background: #ffffff;
+  width: 300px;
+  border-radius: 4px;
+  height: 50px;
+}
+
+.radioStock {
+  height: 28px;
+}
+
+.containerPhotOfGoods {
+  margin-top: 20px;
+  height: auto;
+  background: #ffffff;
+  padding: 20px;
+  padding-bottom: 40px !important;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.containerMainPhotoOfGoods {
+  border: 1px dashed #d4d4d4;
+  border-radius: 4px;
+  height: auto;
+  padding-bottom: 40px !important;
+  padding: 20px;
+}
+
+.bgPreviewPhoto {
+  height: 200px;
+  width: 200px;
+  background: #d4d4d4;
+  border-radius: 4px;
+}
+
+.cardPreviewPhoto {
+  height: 200px;
+  width: 200px;
+}
+
+.inputPhoto {
+  display: none;
+}
+
+.buttonUploadPhoto {
+  border: 1px solid #9b9b9b;
+  border-radius: 24px;
+  height: 50px;
+  width: 150px;
+  background: #ffffff;
+  color: #9b9b9b;
+  padding-top: 10px;
+}
+
+.containerDescription {
+  margin-top: 20px;
+  height: auto;
+  background: #ffffff;
+  padding: 20px;
+  padding-bottom: 40px !important;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.descriptionTextarea {
+  resize: none;
+  width: 100%;
+  height: 300px;
+}
+
+.buttonJual {
+  background: #db3022;
+  border-radius: 25px;
+  height: 50px;
+  width: 100px;
+  border: none;
+  color: white;
+}
+
+.containerCardMyOrder {
+  height: auto;
+  background: #ffffff;
+  padding: 20px;
+  padding-bottom: 40px !important;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.containerMainMyOrder {
+  height: 300px;
+}
+
+.containerCardOrderCancel {
+  height: auto;
+  background: #ffffff;
+  padding: 20px;
+  padding-bottom: 40px !important;
+  border-radius: 3px 3px 0px 0px;
+}
+
+@media screen and (max-width: 720px) {
+  .containerProfileSideLeft {
+    background: #ffffff;
+    height: auto;
+    padding: 30px;
+    padding-left: 45px !important;
+  }
+
+  .containerStoreProduct {
+    border: none;
+  }
+
+  .inputStoreProfile {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #c2c2c2;
+    filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+    border-radius: 4px;
+    padding: 10px;
+  }
+
+  .textareaDescriptionProfile {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #c2c2c2;
+    filter: drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.05));
+    border-radius: 4px;
+    padding: 10px;
+    resize: none;
+  }
+
+  .containePictureUser {
+    height: 120px;
+    width: 120px;
+    background-color: #9b9b9b;
+    border-radius: 100%;
+    margin-top: 30px;
+  }
+
+  .inputInventory {
+    border: 1px solid #9b9b9b;
+    filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .containerStock {
+    border: 1px solid #9b9b9b;
+    filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%;
+    background: #ffffff;
+  }
+
+  .inputStock {
+    border: none;
+    background: #ffffff;
+    width: 100%;
+  }
+
+  .searchMyProduct {
+    background: none;
+    border: none;
+    border-radius: 23px;
+    width: 266px;
+    margin-left: -20px;
+    height: 50px;
+  }
+
+  .containerSearch {
+    background: #ffffff;
+    border: 1px solid #d4d4d4;
+    border-radius: 23px;
+    width: 100%;
+    margin: 0px !important;
+  }
+
+  .selectCategory {
+    border: 1px solid #9b9b9b;
+    filter: drop-shadow(0px 1px 8px rgba(0, 0, 0, 0.05));
+    border-radius: 4px;
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+  }
+
+  .table {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
