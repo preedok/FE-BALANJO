@@ -20,32 +20,29 @@
   margin-left: -20px;
 }
 
-.containerFluidCustom {
-  margin-top: 80px;
-}
+
 
 .containerSatu {
   padding: 0px !important;
 }
 
 .containerProfileSideLeft {
-  background: #ffffff;
   height: auto;
-  padding: 30px;
-  padding-left: 125px !important;
+  padding: 50px;
+  padding-left: 100px !important;
 }
 
 .bgImgLeft {
-  height: 65px;
-  width: 65px;
+  height: 70px;
+  width: 70px;
   border-radius: 100%;
   background-color: #9b9b9b;
-  border: 2px solid red;
 }
 
 .imgLeft {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
 }
 
 .buttonEditProfile button {
@@ -95,17 +92,17 @@
 }
 
 .containerProfileSideRight {
-  background: #f5f5f5;
   height: auto;
-  padding: 30px;
-  margin: 0px !important;
+  padding-left: 10px;
+  padding-right: 50px;
+  padding-top: 25px;
   padding-bottom: 50px !important;
 }
 
 .containerCardStoreProfile {
-  background: #ffffff;
-  border-radius: 4px;
+  border-radius: 25px;
   height: auto;
+  border: 3px solid rgb(177, 177, 177);
 }
 
 .containerTitle {
@@ -166,6 +163,7 @@ textarea {
 .img {
   height: 120px;
   width: 120px;
+  border-radius: 50%;
 }
 
 .buttonSaveProfile {
@@ -180,9 +178,10 @@ textarea {
 .containerCardMyProduct {
   height: auto;
   width: 100%;
-  background: #ffffff;
   padding: 20px;
   padding-bottom: 40px !important;
+  border: 3px solid rgb(177, 177, 177);
+  border-radius: 25px;
 }
 
 .containerTitleMyProduct {
@@ -305,10 +304,10 @@ textarea {
 
 .containerCardInventory {
   height: auto;
-  background: #ffffff;
   padding: 20px;
   padding-bottom: 40px !important;
-  border-radius: 3px 3px 0px 0px;
+  border: 3px solid rgb(177, 177, 177);
+  border-radius: 25px;
 }
 
 .inputInventory {
@@ -423,7 +422,8 @@ textarea {
   background: #ffffff;
   padding: 20px;
   padding-bottom: 40px !important;
-  border-radius: 3px 3px 0px 0px;
+  border-radius: 25px;
+  border: 3px solid rgb(177, 177, 177);
 }
 
 .containerMainMyOrder {
@@ -434,8 +434,10 @@ textarea {
   height: auto;
   background: #ffffff;
   padding: 20px;
+  border: 3px solid rgb(177, 177, 177);
   padding-bottom: 40px !important;
   border-radius: 3px 3px 0px 0px;
+  border-radius: 25px;
 }
 
 @media screen and (max-width: 720px) {

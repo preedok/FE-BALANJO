@@ -97,6 +97,7 @@ const Router = () => {
             path="/profile"
             element={
               <Auth>
+                
                 <ProfileBuyer />
               </Auth>
             }

@@ -95,7 +95,6 @@ const Home = () => {
       getDataProduct(sort, asc, 3, page - 1);
     }
   };
-
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   function toggleDarkMode() {
@@ -107,7 +106,7 @@ const Home = () => {
         <Navs />
         <header className="App-header">
           <div className="container">
-            <div className="col-md-12 py-3 g-0">
+            <div className="col-md-12 py-2 g-0">
               <div className=" form-switch">
                 <input
                   className="form-check-input toggle-button"
@@ -195,36 +194,32 @@ const Home = () => {
                   <p className={styles.textSubmain}>
                     You’ve never seen it before!
                   </p>
-                  {/* <div className="dropdown mb-5">
-                  <button
-                    className={`btn btn-secondary dropdown-toggle ${styles.spanCostumsort}`}
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Sort
-                  </button>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <Link
+                  <div className="dropdown mb-2">
+                    <button
+                      className={`btn btn-outline-danger dropdown-toggle ${styles.spanCostumsort}`}
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Sort
+                    </button>
+                    <ul className="dropdown-menu">
+                      <li
                         className="dropdown-item"
                         href="#"
                         onClick={() => handleSortasc()}
                       >
-                        Sortir berdasarkan{asc}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
+                        Sortir by {asc}
+                      </li>
+                      <li
                         className="dropdown-item"
                         href="#"
                         onClick={() => handleSorting()}
                       >
-                        Sortir berdasarkan {sort}
-                      </Link>
-                    </li>
-                  </ul>
-                </div> */}
+                        Sortir by {sort}
+                      </li>
+                    </ul>
+                  </div>
                   <div className="row row-cols-1 row-cols-md-5 gx-0 gy-4">
                     {/* {JSON.stringify(data)} */}
                     {data.length === 0 ? (
@@ -299,6 +294,7 @@ const Home = () => {
             </div>
           </div>
         </header>
+       
       </div>
     </>
   );

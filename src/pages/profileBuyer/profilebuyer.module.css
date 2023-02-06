@@ -81,7 +81,9 @@
 }
 
 .customMobileSection{
-    margin-left: 60px;
+    margin-left: 70px;
+    border: 3px solid rgb(177, 177, 177);
+
     /* margin-right: 60px; */
 }
 

@@ -3,7 +3,6 @@ import logo from "../../../assets/image/blanja_icon.png";
 import filter from "../../../assets/image/filter.png";
 import notif from "../../../assets/image/notif.png";
 import mail from "../../../assets/image/mail.png";
-import card from "../../../assets/image/cart.png";
 import users from "../../../assets/image/christian.png";
 import style from "../../../assets/style/style.module.css";
 import { Link, useNavigate  } from "react-router-dom";

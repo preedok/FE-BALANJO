@@ -15,21 +15,6 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const ProfileBuyer = () => {
   const navigate = useNavigate();
-  //   const token = localStorage.getItem("token");
-  //   axios
-  //     .get(`${process.env.REACT_APP_BACKEND_URL}/order`, {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data.data);
-  //       setAllItem(response.data.data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
   const [users, setUsers] = useState({});
 
   const data = JSON.parse(localStorage.getItem("buyer"));
@@ -345,7 +330,7 @@ const ProfileBuyer = () => {
             </div>
           ) : (
             <div className={`p-1 ${styles.deleteProduct}`}>
-              <span style={{ fontSize: "17px" }}>Dibatalkan</span>
+              <span style={{ fontSize: "17px" }}>Batal</span>
             </div>
           )}{" "}
         </p>
@@ -516,7 +501,7 @@ const ProfileBuyer = () => {
             </div>
             {viewPage === 0 ? (
               <div
-                className={`col-md-8 bg-white p-5 border rounded-5 ${styles.customMobileSection}`}
+                className={`col-md-8 bg-white p-5 rounded-5 ${styles.customMobileSection}`}
                 id="account"
               >
                 <form
@@ -698,7 +683,7 @@ const ProfileBuyer = () => {
               </div>
             ) : viewPage === 1 ? (
               <div
-                className={`col-md-8 bg-white p-5 rounded-5 border rounded ${styles.customMobileSection}`}
+                className={`col-md-8 bg-white p-5 rounded-5  rounded ${styles.customMobileSection}`}
                 id="address"
               >
                 <div className="col-md-12">
