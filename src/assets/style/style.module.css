@@ -1,217 +1,216 @@
 .buttons {
-    height: 45px;
-    border: 1px solid #9b9b9b;
-    background-color: #fff;
-    color: #9b9b9b;
-  }
-  
-  .buttonsActive {
-    height: 45px; 
-    border: none;
-    background-color: #db3022;
-    color: #fff;
-    border-radius: 25px;
-  }
-  
-  .links {
-    text-decoration: none;
-  }
-  
-  .thumbs {
-    border-radius: 8px;
-  }
-  
-  .thumbnails {
-    height: 370px;
-  }
-  
-  .margins {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .review {
-    font-size: 12px;
-  }
-  
-  .ups {
-    margin-top: -15px;
-  }
-  
-  .button {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    padding: 5px;
-    border: none;
-  }
-  
-  .colorActive {
-    border: 1px solid #db3022;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: #fff;
-  }
-  
-  .colors {
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .blackActive {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .red {
-    background-color: #db3022;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .redActive {
-    background-color: #db3022;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .blue {
-    background-color: #4290d8;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .blueActive {
-    background-color: #4290d8;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .green {
-    background-color: #42d86c;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .greenActive {
-    background-color: #42d86c;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-top: 0.15rem;
-  }
-  
-  .buttonProductDetail {
-    height: 45px;
-    border-radius: 24px;
-  }
-  
-  .ratings {
-    font-size: 60px;
-  }
-  
-  .borderBottom {
-    border-bottom: 2px solid #d4d4d4;
-  }
-  
-  .cardsImage {
-    height: 13rem;
-  }
-  
-  .cardProductTitle {
-    font-size: 16px;
-  }
-  
-  .cardProductShop {
-    font-size: 12px;
-  }
-  
-  .cardSpacing {
-    padding-right: 10px;
-  }
-  
-  .sidebar {
-    display: block;
-    list-style: none;
-    margin-bottom: 10px;
-    margin-left: -30px;
-    padding: 15px;
-  }
-  
-  .sidebar:hover {
-    background-color: rgb(226, 226, 226);
-    border-radius: 10px;
-  }
-  
-  .butts {
-    width: 100%;
-  }
-  
-  .sideLink {
-    text-decoration: none;
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #a3b0bc;
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .mid {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  
-  ::-webkit-scrollbar{
-    display: none;
-  }
-  
-  @media screen and (max-width: 480px) {
-    .mobiles {
-      display: flex;
-      flex-direction: row;
-      overflow: scroll;
-      height: 270px;
-    }
-  
-    .navSearch {
-      margin-left: -35px;
-    }
-  
-    .cardMobiles {
-      display: flex;
-      flex-direction: row;
-      overflow: scroll;
-    }
-  
-    .cardsImage {
-      height: 10rem;
-    }
-  
-    .thumbnails {
-      height: 270px;
-    }
-   
+  height: 45px;
+  border: 1px solid #9b9b9b;
+  background-color: #fff;
+  color: #9b9b9b;
+}
+
+.buttonsActive {
+  height: 45px;
+  border: none;
+  background-color: #db3022;
+  color: #fff;
+  border-radius: 25px;
+}
+
+.links {
+  text-decoration: none;
+}
+
+.thumbs {
+  border-radius: 8px;
+}
+
+.thumbnails {
+  height: 370px;
+}
+
+.margins {
+  margin: 0;
+  padding: 0;
+}
+
+.review {
+  font-size: 12px;
+}
+
+.ups {
+  margin-top: -15px;
+}
+
+.button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  padding: 5px;
+  border: none;
+}
+
+.colorActive {
+  border: 1px solid #db3022;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.colors {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.blackActive {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.red {
+  background-color: #db3022;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.redActive {
+  background-color: #db3022;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.blue {
+  background-color: #4290d8;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.blueActive {
+  background-color: #4290d8;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.green {
+  background-color: #42d86c;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.greenActive {
+  background-color: #42d86c;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-top: 0.15rem;
+}
+
+.buttonProductDetail {
+  height: 45px;
+  border-radius: 24px;
+}
+
+.ratings {
+  font-size: 60px;
+}
+
+.borderBottom {
+  border-bottom: 2px solid #d4d4d4;
+}
+
+.cardsImage {
+  height: 13rem;
+}
+
+.cardProductTitle {
+  font-size: 16px;
+}
+
+.cardProductShop {
+  font-size: 12px;
+}
+
+.cardSpacing {
+  padding-right: 10px;
+}
+
+.sidebar {
+  display: block;
+  list-style: none;
+  margin-bottom: 10px;
+  margin-left: -30px;
+  padding: 15px;
+}
+
+.sidebar:hover {
+  background-color: rgb(226, 226, 226);
+  border-radius: 10px;
+}
+
+.butts {
+  width: 100%;
+}
+
+.sideLink {
+  text-decoration: none;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #a3b0bc;
+  border-radius: 10px;
+  color: white;
+}
+
+.mid {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .mobiles {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    height: 270px;
   }
 
-  @media screen and (max-width: 600px) {
-    .dd{
-      margin-left: 27px;
-    }
+  .navSearch {
+    margin-left: -35px;
   }
+
+  .cardMobiles {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+  }
+
+  .cardsImage {
+    height: 10rem;
+  }
+
+  .thumbnails {
+    height: 270px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dd {
+    margin-left: 27px;
+  }
+}

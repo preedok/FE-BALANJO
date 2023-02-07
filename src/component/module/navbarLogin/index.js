@@ -5,7 +5,7 @@ import notif from "../../../assets/image/notif.png";
 import mail from "../../../assets/image/mail.png";
 import users from "../../../assets/image/christian.png";
 import style from "../../../assets/style/style.module.css";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 const NavbarLogin = () => {
@@ -33,10 +33,10 @@ const NavbarLogin = () => {
       title: "Logout Success",
       text: `Your account have been Logout`,
       icon: "success",
-    })
+    });
     return navigate("/login");
   };
-  const names = JSON.parse(localStorage.getItem('name'))
+  const names = JSON.parse(localStorage.getItem("name"));
   const [search, setSearch] = useState();
 
   const handleSearch = (e) => {
@@ -77,7 +77,6 @@ const NavbarLogin = () => {
                   aria-label="Search"
                   onChange={(e) => setSearch(e.target.value)}
                   onKeyDown={handleSearch}
-
                 />
                 <button
                   type="button"
@@ -221,7 +220,6 @@ const NavbarLogin = () => {
             </ul>
             <div className={`row col-md-5 col-12 d-flex flex-row-reverse`}>
               <div className="col-md-6 col-12 mb-2 w-100 d-flex justify-content-end gap-2">
-                
                 <div className="d-flex justify-content-center align-items-center">
                   <Link to="/">
                     <img
@@ -237,42 +235,41 @@ const NavbarLogin = () => {
                     src={mail}
                     alt=""
                   />
-                 
                 </div>
-                <div  className=" dropdown d-flex justify-content-center align-items-center">
-                 
-                    <img
-                      style={{
-                        borderRadius: "50%",
-                        width: "35px",
-                        height: "35px",
-                        marginTop: "13px",
-                        marginLeft: "20px",
-                        border: "2px solid red",
-                      }}
-                      src={users}
-                      alt=""
-                      type='button'
-                      data-bs-toggle="dropdown"
-                      onClick={() => navigate("/profile")}
-                      
-                    />
-                    
-                  
-                  <span className="mt-2 ms-2" style={{fontWeight:'600', fontSize:'17px'}}>{names}</span>
+                <div className=" dropdown d-flex justify-content-center align-items-center">
+                  <img
+                    style={{
+                      borderRadius: "50%",
+                      width: "35px",
+                      height: "35px",
+                      marginTop: "13px",
+                      marginLeft: "20px",
+                      border: "2px solid red",
+                    }}
+                    src={users}
+                    alt=""
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    onClick={() => navigate("/profile")}
+                  />
+
+                  <span
+                    className="mt-2 ms-2"
+                    style={{ fontWeight: "600", fontSize: "17px" }}
+                  >
+                    {names}
+                  </span>
                 </div>
                 <div className="col-md-6 col-12 mt-2 ms-2">
-                  
-                    <Link to="/register">
-                      <button
-                       type="submit"
-                        onClick={onLogout}
-                        className={`btn btn-danger btn-outline-light border border-danger rounded-5 col-12 ${style.dd}`}
-                      >
-                        Logout
-                      </button>
-                    </Link>
-                 
+                  <Link to="/register">
+                    <button
+                      type="submit"
+                      onClick={onLogout}
+                      className={`btn btn-danger btn-outline-light border border-danger rounded-5 col-12 ${style.dd}`}
+                    >
+                      Logout
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

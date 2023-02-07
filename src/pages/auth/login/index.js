@@ -1,125 +1,38 @@
 import React from "react";
 import logo from "../../../assets/logo.svg";
-import swal from "sweetalert";
 import styles from "../auth.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { loginUser, loginSellers } from "../../../redux/action/userAction";
 
 const Login = () => {
   const [role, setRole] = useState("Buyer");
   const navigate = useNavigate();
-
-  const [formBuyer, setFormBuyer] = useState({
+  const dispacth = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
-  const [formSeller, setFormSeller] = useState({
-    email: "",
-    password: "",
-  });
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const loginBuyer = (e) => {
     e.preventDefault();
-
-    axios
-      .post(`http://localhost:5000/buyer/login`, formBuyer)
-      .then((response) => {
-        console.log(response);
-        if (response.data.status !== "success") {
-          swal({
-            title: "Login Success",
-            text: `Your account have been updated`,
-            icon: "success",
-          })
-           return navigate("/"); 
-        } else {
-          const token = response.data.data.token;
-
-          localStorage.setItem("token", token);
-
-          localStorage.setItem(
-            "buyer",
-            JSON.stringify(response.data.data.buyer)
-          );
-
-          localStorage.setItem(
-            "email",
-            JSON.stringify(response.data.data.buyer.email)
-          );
-          localStorage.setItem(
-            "name",
-            JSON.stringify(response.data.data.buyer.name)
-          );
-          swal({
-            title: "Login Success",
-            text: `Your account have been updated`,
-            icon: "success",
-          })
-          return navigate('/')
-          
-        }
-      })
-      .catch(() => {
-        swal({
-          title: "Login Failed",
-          text: `Make sure your data is correct!`,
-          icon: "warning",
-        });
-      });
+    setLoading(true);
+    dispacth(loginUser(form, navigate, loading));
   };
 
   const loginSeller = (e) => {
     e.preventDefault();
-
-    axios
-      .post(`http://localhost:5000/seller/login`, formSeller)
-      .then((response) => {
-        console.log(response);
-        if (response.data.status !== "success") {
-          swal({
-            title: "Login Success",
-            text: `Your account Success Login`,
-            icon: "success",
-          })
-          return  navigate("/");
-         
-
-        } else {
-          const token = response.data.data.token;
-
-          localStorage.setItem("token", token);
-
-          localStorage.setItem(
-            "seller",
-            JSON.stringify(response.data.data.seller)
-          );
-
-          localStorage.setItem(
-            "email",
-            JSON.stringify(response.data.data.seller.email)
-          );
-          localStorage.setItem(
-            "name",
-            JSON.stringify(response.data.data.seller.name)
-          );
-          swal({
-            title: "Login Success",
-            text: `Your account have been updated`,
-            icon: "success",
-          })
-          
-        }
-        return navigate('/')
-      })
-      .catch(() => {
-        swal({
-          title: "Login Failed",
-          text: `Make sure your data is correct!`,
-          icon: "warning",
-        });
-      });
+    setLoading(true);
+    dispacth(loginSellers(form, navigate, loading));
   };
 
   return (
@@ -177,10 +90,9 @@ const Login = () => {
                   name="email"
                   type="email"
                   id="email"
-                  onChange={(e) =>
-                    setFormBuyer({ ...formBuyer, email: e.target.value })
-                  }
-                  value={formBuyer.email}
+                  required
+                  value={form.email}
+                  onChange={handleChange}
                   placeholder="Email"
                 />
               </div>
@@ -189,10 +101,9 @@ const Login = () => {
                   name="password"
                   type="password"
                   id="password"
-                  onChange={(e) =>
-                    setFormBuyer({ ...formBuyer, password: e.target.value })
-                  }
-                  value={formBuyer.password}
+                  required
+                  value={form.password}
+                  onChange={handleChange}
                   placeholder="Password"
                 />
               </div>
@@ -206,7 +117,7 @@ const Login = () => {
               </div>
               <div className="mt-3 justify-content-center align-items-center flex d-flex">
                 <p>
-                  Don't have a Tikitoko account?{" "}
+                  Don't have a Balanjo account?{" "}
                   <button
                     type="button"
                     onClick={() => navigate("/register")}
@@ -226,10 +137,9 @@ const Login = () => {
                   name="email"
                   type="email"
                   id="email"
-                  onChange={(e) =>
-                    setFormSeller({ ...formSeller, email: e.target.value })
-                  }
-                  value={formSeller.email}
+                  required
+                  value={form.email}
+                  onChange={handleChange}
                   placeholder="Email"
                 />
               </div>
@@ -238,10 +148,9 @@ const Login = () => {
                   name="password"
                   type="password"
                   id="password"
-                  onChange={(e) =>
-                    setFormSeller({ ...formSeller, password: e.target.value })
-                  }
-                  value={formSeller.password}
+                  required
+                  value={form.password}
+                  onChange={handleChange}
                   placeholder="Password"
                 />
               </div>
@@ -255,7 +164,7 @@ const Login = () => {
               </div>
               <div className="mt-3 justify-content-center align-items-center flex d-flex">
                 <p>
-                  Don't have a Tikitoko account?{" "}
+                  Don't have a Balanjo account?{" "}
                   <button
                     type="button"
                     onClick={() => navigate("/register")}

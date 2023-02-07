@@ -18,7 +18,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
 import "./test.css";
 
 import { Pagination, Navigation } from "swiper";
@@ -96,7 +95,6 @@ const Home = () => {
     }
   };
   const [isDarkMode, setIsDarkMode] = useState(false);
-
   function toggleDarkMode() {
     setIsDarkMode(!isDarkMode);
   }
@@ -140,7 +138,6 @@ const Home = () => {
                     loopFillGroupWithBlank={true}
                     pagination={{
                       clickable: true,
-                      // margin: "1500px",
                     }}
                     navigation={true}
                     modules={[Pagination, Navigation]}
@@ -294,7 +291,6 @@ const Home = () => {
             </div>
           </div>
         </header>
-       
       </div>
     </>
   );

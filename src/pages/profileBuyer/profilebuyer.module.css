@@ -1,338 +1,336 @@
-.customNewAdd{
-    border: dashed 2px #e0e0e0;
-    border-radius: 10px;
-    display: flex !important;
-    justify-content: center !important;
+.customNewAdd {
+  border: dashed 2px #e0e0e0;
+  border-radius: 10px;
+  display: flex !important;
+  justify-content: center !important;
 }
 
-.customAddBtn{
-    border: none !important; 
-    background: none   !important;
+.customAddBtn {
+  border: none !important;
+  background: none !important;
 }
 
-.customAdd{
-    border: solid 1px red;
-    border-radius: 10px;
-    margin-top: 15px;
+.customAdd {
+  border: solid 1px red;
+  border-radius: 10px;
+  margin-top: 15px;
 }
 .deleteProduct {
-    border: none;
-    background-color: red;
-    box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
-    color: white;
-    border-radius: 7px;
-    width: 55px;
-    height: 35px;
-  }
-  
-  .updateProduct {
-    border: none;
-    background-color: yellow;
-    box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
-    color: black;
-    border-radius: 7px;
-    width: 55px;
-    height: 35px;
-  }
-  .deleteProduct {
-    width: 55px;
-    border: none;
-    background-color: red;
-    box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
-    color: white;
-    border-radius: 7px;
-    height: 35px;
-  }
-  
-  .bgPaid {
-    border: none;
-    width: 55px;
-    background-color: rgb(12, 255, 4);
-    box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
-    color: white;
-    border-radius: 7px;
-    height: 35px;
-  }
-.bgBlue{
-    background-color:#456BF3;
-}
-.bgOrange{
-    background-color: #F36F45;
-}
-.bgPink{
-    background-color: #F3456F;
-}
-.customContainer{
-    height: 100%;
-    margin-top: 40px;
-}
-.customBtnAdd{
-    background-color: #F36F45;
-    color: white;
-    border-radius: 10px;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 15px;
-}
-.accent{
-    accent-color: #F3456F !important;
-    cursor: pointer;
-    margin-left: -20px;
+  border: none;
+  background-color: red;
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: white;
+  border-radius: 7px;
+  width: 55px;
+  height: 35px;
 }
 
-.customMobileSection{
-    margin-left: 70px;
-    border: 3px solid rgb(177, 177, 177);
-
-    /* margin-right: 60px; */
+.updateProduct {
+  border: none;
+  background-color: yellow;
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: black;
+  border-radius: 7px;
+  width: 55px;
+  height: 35px;
+}
+.deleteProduct {
+  width: 55px;
+  border: none;
+  background-color: red;
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: white;
+  border-radius: 7px;
+  height: 35px;
 }
 
-.customCollapse{
-    width: 700px !important;
-    background-color: #456BF3;
-    margin-left: -80px;
+.bgPaid {
+  border: none;
+  width: 55px;
+  background-color: rgb(12, 255, 4);
+  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
+  color: white;
+  border-radius: 7px;
+  height: 35px;
+}
+.bgBlue {
+  background-color: #456bf3;
+}
+.bgOrange {
+  background-color: #f36f45;
+}
+.bgPink {
+  background-color: #f3456f;
+}
+.customContainer {
+  height: 100%;
+  margin-top: 40px;
+}
+.customBtnAdd {
+  background-color: #f36f45;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+.accent {
+  accent-color: #f3456f !important;
+  cursor: pointer;
+  margin-left: -20px;
+}
+
+.customMobileSection {
+  margin-left: 70px;
+  border: 3px solid rgb(177, 177, 177);
+
+  /* margin-right: 60px; */
+}
+
+.customCollapse {
+  width: 700px !important;
+  background-color: #456bf3;
+  margin-left: -80px;
 }
 
 @media screen and (max-width: 768px) {
-    .customMobileSection{
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
+  .customMobileSection {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 @media screen and (max-width: 720px) {
-    .customCollapse{
-        width: 100% !important;
-        margin-left: 0 !important;
-    }
+  .customCollapse {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
 }
 
 .card {
-    background: #FFFFFF;
-    box-shadow: 0px 0px 8px rgba(29, 29, 29, 0.25);
-    border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 0px 0px 8px rgba(29, 29, 29, 0.25);
+  border-radius: 4px;
 }
 
 .title {
-    font-weight: 700;
-    font-size: 34px;
-    color: #222222;
-    margin-top: 50px;
-    margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 34px;
+  color: #222222;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .sub-title {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .card .card-summary {
-    font-weight: 600;
-    font-size: 16px;
-    color: #222222;
+  font-weight: 600;
+  font-size: 16px;
+  color: #222222;
 }
 
 .card .card-summary-bottom {
-    font-weight: 600;
-    font-size: 16px;
-    color: #222222;
+  font-weight: 600;
+  font-size: 16px;
+  color: #222222;
 }
 
 .card .card-summary-bottom span {
-    margin-top: -20px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #4e4e4e;
+  margin-top: -20px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4e4e4e;
 }
 
 .order {
-    margin-top: 30px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #9B9B9B;
+  margin-top: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #9b9b9b;
 }
 
 .delivery {
-    margin-top: 15px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #9B9B9B;
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #9b9b9b;
 }
 
 .del {
-    font-weight: 500;
-    font-size: 16px;
-    color: #DB3022;
-    cursor: pointer;
-
+  font-weight: 500;
+  font-size: 16px;
+  color: #db3022;
+  cursor: pointer;
 }
 
 .order span {
-    margin-top: -20px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #222222;
+  margin-top: -20px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #222222;
 }
 
 .delivery span {
-    margin-top: -20px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #222222;
+  margin-top: -20px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #222222;
 }
 
 .delivery span {
-    margin-top: -20px;
-    font-weight: 500;
-    font-size: 16px;
-    color: #222222;
+  margin-top: -20px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #222222;
 }
 
 .btn-choose {
-    height: 36px;
-    width: 40%;
-    border-radius: 25px;
-    background-color: transparent;
-    border: solid 2px #2e2e2e;
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    align-items: center;
-    text-align: center;
-    color: #9B9B9B;
+  height: 36px;
+  width: 40%;
+  border-radius: 25px;
+  background-color: transparent;
+  border: solid 2px #2e2e2e;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  text-align: center;
+  color: #9b9b9b;
 }
 
 .buyer-name {
-    font-size: 20px;
-    font-weight: 600;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .buyer-adress {
-    font-size: 12px;
-    font-weight: 400;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .buy {
-    height: 36px;
-    width: 100%;
-    border-radius: 25px;
-    background: #DB3022;
-    margin-top: 35px;
-    border: none;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    align-items: center;
-    text-align: center;
-    color: #FFFFFF;
+  height: 36px;
+  width: 100%;
+  border-radius: 25px;
+  background: #db3022;
+  margin-top: 35px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
 }
 
 .check {
-    height: 20px;
-    width: 20px;
-    border-radius: 4px;
-    background: #DB3022 !important;
-    margin-right: 23px;
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+  background: #db3022 !important;
+  margin-right: 23px;
 }
 
 .selectall {
-    max-width: 1000px;
-    font-weight: 500;
-    font-size: 16px;
-    margin-top: 6px;
-    color: #222222;
+  max-width: 1000px;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 6px;
+  color: #222222;
 }
 
 .selected {
-    color: #2e2e2e;
-    margin-top: 2px;
+  color: #2e2e2e;
+  margin-top: 2px;
 }
 
 .delete {
-    /* margin-top: -10px; */
-    font-weight: 500;
-    font-size: 16px;
-    color: #DB3022;
-    margin-top: 5px;
-    border: none;
-    background-color: transparent;
+  /* margin-top: -10px; */
+  font-weight: 500;
+  font-size: 16px;
+  color: #db3022;
+  margin-top: 5px;
+  border: none;
+  background-color: transparent;
 }
 
 .product-img {
-    border-radius: 8px;
-    margin-right: 11px;
+  border-radius: 8px;
+  margin-right: 11px;
 }
 
 .product {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .brand {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .product h5 {
-    font-weight: 500;
-    font-size: 16px;
-    color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
 }
 
 .product .brand p {
-    font-weight: 500;
-    font-size: 12px;
-    color: #2e2e2e;
+  font-weight: 500;
+  font-size: 12px;
+  color: #2e2e2e;
 }
 
 .circle {
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    border: none;
-    padding-bottom: 6px;
-    width: 1em;
-    height: 1em;
-    border-radius: 100%;
-    background: #D5D5D5;
-    font-size: 25px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    color: #FFFFFF;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  border: none;
+  padding-bottom: 6px;
+  width: 1em;
+  height: 1em;
+  border-radius: 100%;
+  background: #d5d5d5;
+  font-size: 25px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
 }
 
 .sum {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 16px;
-    color: #222222;
-    margin-top: 8px;
-    margin-left: 10px;
-    margin-right: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #222222;
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .product .price {
-    font-weight: 600;
-    font-size: 16px;
-    color: #222222;
-    margin-top: 1px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #222222;
+  margin-top: 1px;
 }
 
-
 .price {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .delete-btn,
 .delete-btn:focus {
-    background-color: #DB3022;
-    color: #ffffff;
-    border: none;
-    border-radius: 16px;
-    outline: none;
-    margin-left: 10px;
+  background-color: #db3022;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  outline: none;
+  margin-left: 10px;
 }

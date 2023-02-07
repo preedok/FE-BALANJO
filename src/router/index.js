@@ -49,18 +49,16 @@ const Auth = ({ children }) => {
 };
 
 const Router = () => {
- 
   return (
     <BrowserRouter>
       <ScrollToTop>
         <Routes>
           {/* Auth Routes  */}
-          <Route path="/login" element={<Login  />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/reset" element={<Reset />} />
           <Route path="/data" element={<Data />} />
-     
 
           {/* Main Routes */}
           <Route path="/" element={<Home />} />
@@ -90,14 +88,12 @@ const Router = () => {
               </Auth>
             }
           />
-  
 
           {/* Profile Routes */}
           <Route
             path="/profile"
             element={
               <Auth>
-                
                 <ProfileBuyer />
               </Auth>
             }

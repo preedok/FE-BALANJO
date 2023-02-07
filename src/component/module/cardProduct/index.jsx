@@ -15,14 +15,14 @@ const CardProduct = ({
       {/* {JSON.stringify(data)} */}
       <div className="col">
         <Link to={byId} className={styles.cstmLink}>
-          <div style={{bordeRadius: '25px'}} className="card h-100 mx-1">
+          <div style={{ bordeRadius: "25px" }} className="card h-100 mx-1">
             <img
               src={linkImage}
               className="card-img-top"
               alt="imgNew"
-              style={{ height: "250px" }}
+              style={{ height: "200px" }}
             />
-            <div style={{bordeRadius: '25px'}} className="card-body rounded-5">
+            <div className="card-body " style={{ height: "130px" }}>
               <h5 className={styles.cardTitle}>{nameProduct}</h5>
               <p className={styles.textPricecard}>Rp. {priceProduct}</p>
               <p className={styles.textBrand}>{sellerProduct}</p>

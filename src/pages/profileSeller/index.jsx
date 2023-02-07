@@ -68,27 +68,6 @@ const ProfileSeller = () => {
       });
   };
 
-  const handleUpdateProduct = (e) => {
-    e.preventDefault();
-    let formData = new FormData(e.target);
-    formData.append("seller_id", id);
-    axios
-      .put(`${process.env.REACT_APP_BACKEND_URL}/product/${id}`, formData)
-      .then((res) => {
-        console.log(res.data.data);
-        swal({
-          title: "Update Success",
-          text: `Your Product have been updated`,
-          icon: "success",
-        }).then(() => {
-          navigate("/store");
-        });
-      })
-      .catch((err) => {
-        alert("Update Failed");
-      });
-  };
-
   const hiddenFileInput = useRef(null);
   const handleClick = (event) => {
     hiddenFileInput.current.click();
@@ -812,7 +791,6 @@ const ProfileSeller = () => {
                     </div>
 
                     <div>
-                    
                       <div className={styles.containerMainAllItem}>
                         {ownProduct === "" ? (
                           <div className="mt-4 text-center">
@@ -885,9 +863,11 @@ const ProfileSeller = () => {
                         )}
                         {/* MODAL UPDATE */}
                         <div>
-                          <form  onSubmit={(e) => {
-                        handleUpdateProduct(e);
-                      }} >
+                          <form
+                            onSubmit={(e) => {
+                              onUpdateProduct(e);
+                            }}
+                          >
                             <div
                               className="modal fade"
                               id="staticBackdrop"
@@ -1006,22 +986,22 @@ const ProfileSeller = () => {
                                           />
                                         </div>
                                       </div>
+                                      <div className="modal-footer">
+                                        <button
+                                          type="button"
+                                          className="btn btn-secondary"
+                                          data-bs-dismiss="modal"
+                                        >
+                                          Close
+                                        </button>
+                                        <button
+                                          className="btn btn-primary"
+                                          onClick={onUpdateProduct}
+                                        >
+                                          Save
+                                        </button>
+                                      </div>
                                     </form>
-                                  </div>
-                                  <div className="modal-footer">
-                                    <button
-                                      type="button"
-                                      className="btn btn-secondary"
-                                      data-bs-dismiss="modal"
-                                    >
-                                      Close
-                                    </button>
-                                    <button
-                                      className="btn btn-primary"
-                                      onClick={onUpdateProduct}
-                                    >
-                                      Save
-                                    </button>
                                   </div>
                                 </div>
                               </div>
