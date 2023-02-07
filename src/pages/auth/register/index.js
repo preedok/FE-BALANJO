@@ -23,6 +23,7 @@ const Register = () => {
 
   const onSubmit1 = (e) => {
     e.preventDefault();
+    // console.log(form)
     if (form.name === "" || form.phone === "" || form.password === "") {
       swal({
         title: "Register Failed",
@@ -30,6 +31,11 @@ const Register = () => {
         icon: "failed",
       });
     }
+    // }else {
+    //     if (form.password !== form.password2) {
+    //       alert("Password harus sama");
+    //       return navigate ("/register")
+    //     }
     const body = {
       name: form.name,
       password: form.password,
@@ -66,6 +72,7 @@ const Register = () => {
 
   const onSubmit2 = (e) => {
     e.preventDefault();
+    // console.log(form)
     if (
       form2.name === "" ||
       form2.email === "" ||
@@ -78,6 +85,11 @@ const Register = () => {
         icon: "failed",
       });
     }
+    // }else {
+    //     if (form2.password !== form2.password2) {
+    //       alert("Password harus sama");
+    //       return navigate ("/register")
+    //     }
     const body = {
       name: form2.name,
       password: form2.password,

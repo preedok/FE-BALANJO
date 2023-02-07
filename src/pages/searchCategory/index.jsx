@@ -12,7 +12,7 @@ const SearchCategory = () => {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`https://balanjo-api.cyclic.app/product?category=${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/product?category=${id}`)
       .then((response) => {
         console.log(response.data);
         setData(response.data.data);

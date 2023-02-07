@@ -4,7 +4,7 @@ import swal from "sweetalert2";
 export const loginUser = (data, navigate, setLoading) => async (dispacth) => {
   try {
     const response = await axios.post(
-      `https://balanjo-api.cyclic.app/buyer/login`,
+      `${process.env.REACT_APP_BACKEND_URL}/buyer/login`,
       data
     );
     const token = response.data.data.token;
@@ -35,7 +35,7 @@ export const loginSellers =
   (data, navigate, setLoading) => async (dispacth) => {
     try {
       const response = await axios.post(
-        `https://balanjo-api.cyclic.app/seller/login`,
+        `${process.env.REACT_APP_BACKEND_URL}/seller/login`,
         data
       );
       const token = response.data.data.token;

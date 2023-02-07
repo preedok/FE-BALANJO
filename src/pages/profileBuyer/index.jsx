@@ -23,7 +23,7 @@ const ProfileBuyer = () => {
   const [dateBirth, setDateBirth] = useState("");
   useEffect(() => {
     axios
-      .get(`https://balanjo-api.cyclic.app/buyer/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/buyer/${id}`)
       .then((res) => {
         console.log(res.data);
         setUsers(res.data.data);
@@ -56,7 +56,7 @@ const ProfileBuyer = () => {
     let formData = new FormData(e.target);
     formData.append("buyer_id", id);
     axios
-      .put(`https://balanjo-api.cyclic.app/buyer/${id}`, formData)
+      .put(`${process.env.REACT_APP_BACKEND_URL}/buyer/${id}`, formData)
       .then((res) => {
         swal({
           title: "Update Success",
@@ -86,7 +86,7 @@ const ProfileBuyer = () => {
 
   useEffect(() => {
     axios
-      .get(`https://balanjo-api.cyclic.app/address`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/address`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -129,7 +129,7 @@ const ProfileBuyer = () => {
         city: addressForm.city,
       };
       axios
-        .post(`https://balanjo-api.cyclic.app/address`, body, {
+        .post(`${process.env.REACT_APP_BACKEND_URL}/address`, body, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -165,11 +165,14 @@ const ProfileBuyer = () => {
     }).then(async (confirm) => {
       if (confirm) {
         axios
-          .delete(`https://balanjo-api.cyclic.app/address/${address_id}`, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          })
+          .delete(
+            `${process.env.REACT_APP_BACKEND_URL}/address/${address_id}`,
+            {
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          )
           .then((res) => {
             setAddressForm(res.data.data);
             swal({
@@ -191,7 +194,7 @@ const ProfileBuyer = () => {
 
   const prepareDataAddress = (address_id) => {
     axios
-      .get(`https://balanjo-api.cyclic.app/address/${address_id}`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/address/${address_id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -208,7 +211,7 @@ const ProfileBuyer = () => {
     e.preventDefault();
     axios
       .put(
-        `https://balanjo-api.cyclic.app/address/${editAddress.address_id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/address/${editAddress.address_id}`,
         editAddress,
         {
           headers: {
@@ -245,7 +248,7 @@ const ProfileBuyer = () => {
     }).then(async (confirm) => {
       if (confirm) {
         axios
-          .put(`https://balanjo-api.cyclic.app/order/cancel/${val}`)
+          .put(`${process.env.REACT_APP_BACKEND_URL}/order/cancel/${val}`)
           .then((res) => {
             swal({
               title: "Order Cancelled",
@@ -352,7 +355,7 @@ const ProfileBuyer = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get(`https://balanjo-api.cyclic.app/order`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/order`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

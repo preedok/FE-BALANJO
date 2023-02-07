@@ -35,7 +35,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`https://balanjo-api.cyclic.app/product/${id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/product/${id}`)
       .then((response) => {
         console.log(response.data.data);
         setData(response.data.data);
@@ -48,7 +48,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`https://balanjo-api.cyclic.app/product`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/product`)
       .then((response) => {
         console.log(response.data.data);
         setRecommend(response.data.data);
@@ -78,7 +78,7 @@ const ProductDetail = () => {
     };
 
     axios
-      .post(`https://balanjo-api.cyclic.app/cart`, form, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}/cart`, form, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
