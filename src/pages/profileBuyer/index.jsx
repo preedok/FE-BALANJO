@@ -488,16 +488,6 @@ const ProfileBuyer = () => {
                     </span>
                   </small>
                 </div>
-                {/* <div className="col-md-12">
-                <button
-                  type="submit"
-                  className="btn btn-outline-danger mt-2 rounded-pill"
-                  style={{ width: "100%" }}
-                  onClick={logout}
-                >
-                  Logout
-                </button>
-              </div> */}
               </div>
             </div>
             {viewPage === 0 ? (

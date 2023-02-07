@@ -285,9 +285,6 @@ textarea {
 }
 
 .buttonFilter {
-  border: none;
-  background-color: rgb(5, 197, 255);
-  box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
   color: white;
   border-radius: 7px;
   width: 100px;

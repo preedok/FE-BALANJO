@@ -25,6 +25,7 @@ const ProfileSeller = () => {
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState("product_id");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [users, setUsers] = useState({});
 
   useEffect(() => {
     getDataCategory();
@@ -32,7 +33,6 @@ const ProfileSeller = () => {
     getOwnOrder(queryOrder);
   }, [query, sort, sortOrder, page]);
 
-  const [users, setUsers] = useState({});
   const data = JSON.parse(localStorage.getItem("seller"));
   const id = data.seller_id;
   useEffect(() => {
@@ -57,7 +57,28 @@ const ProfileSeller = () => {
         console.log(res.data.data);
         swal({
           title: "Update Success",
-          text: `Your account have been updated`,
+          text: `Your have been updated`,
+          icon: "success",
+        }).then(() => {
+          navigate("/store");
+        });
+      })
+      .catch((err) => {
+        alert("Update Failed");
+      });
+  };
+
+  const handleUpdateProduct = (e) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
+    formData.append("seller_id", id);
+    axios
+      .put(`${process.env.REACT_APP_BACKEND_URL}/product/${id}`, formData)
+      .then((res) => {
+        console.log(res.data.data);
+        swal({
+          title: "Update Success",
+          text: `Your Product have been updated`,
           icon: "success",
         }).then(() => {
           navigate("/store");
@@ -573,286 +594,149 @@ const ProfileSeller = () => {
             <div className={styles.containerProfileSideRight}>
               {viewPage === 0 ? (
                 <div className={styles.containerCardStoreProfile}>
-                  <div className={styles.containerTitle}>
-                    <div>
-                      <h5>My profile store</h5>
-                    </div>
-                    <div>
-                      <p className="text-secondary">
-                        Manage your profile information
-                      </p>
-                    </div>
-                    <hr />
+                  <div
+                    className={`col-md-8 bg-white p-5 rounded-5 ${styles.customMobileSection}`}
+                    id="account"
+                  >
+                    <form
+                      onSubmit={(e) => {
+                        handleUpdate(e);
+                      }}
+                    >
+                      <div className="col-md-12">
+                        <h5>My Profile</h5>
+                        <p className="text-muted">
+                          Manage your profile information
+                        </p>
+                        <hr />
+                      </div>
+                      <div className="row">
+                        <div className="col-md-9">
+                          <div className="row my-4">
+                            <div className="col-md-3">
+                              <label htmlFor="username" className="text-muted">
+                                Name
+                              </label>
+                            </div>
+                            <div className="col-md-8">
+                              <input
+                                type="text"
+                                name="name"
+                                id="username"
+                                className="form-control"
+                                placeholder="Masukkan nama"
+                                defaultValue={users.name}
+                              />
+                            </div>
+                          </div>
+                          <div className="row my-4">
+                            <div className="col-md-3">
+                              <label htmlFor="email" className="text-muted">
+                                Email
+                              </label>
+                            </div>
+                            <div className="col-md-8">
+                              <input
+                                type="text"
+                                name="email"
+                                id="email"
+                                // disabled
+                                className="form-control"
+                                placeholder="Masukkan email"
+                                defaultValue={users.email}
+                              />
+                            </div>
+                          </div>
+                          <div className="row my-4">
+                            <div className="col-md-3">
+                              <label htmlFor="phone" className="text-muted">
+                                Phone
+                              </label>
+                            </div>
+                            <div className="col-md-8">
+                              <input
+                                type="text"
+                                name="phone"
+                                id="phone"
+                                className="form-control"
+                                placeholder="Masukkan nomor telepon"
+                                defaultValue={users.phone}
+                              />
+                            </div>
+                          </div>
+                          <div className="row my-4">
+                            <div className="col-md-3">
+                              <label
+                                htmlFor="description"
+                                className="text-muted"
+                              >
+                                Description
+                              </label>
+                            </div>
+                            <div className="col-md-8">
+                              <textarea
+                                type="text"
+                                name="description"
+                                id="description"
+                                className="form-control"
+                                placeholder="Masukkan descripsi"
+                                defaultValue={users.description}
+                              />
+                            </div>
+                          </div>
+
+                          <div className="row mt-4 mb-5">
+                            <div className="col-md-3"></div>
+                            <div className="col-md-8">
+                              <button
+                                type="submit"
+                                className="btn btn-danger w-100 px-4 rounded-pill"
+                              >
+                                save
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-md-3 bg-white mt-3 ">
+                          <div className="col-md-12 px-3 text-center border-start">
+                            <img
+                              src={
+                                users.avatar
+                                  ? users.avatar
+                                  : require("../../assets/dummy.jpg")
+                              }
+                              alt={users.name}
+                              width={200}
+                              height={200}
+                              className="rounded-circle"
+                            />
+                          </div>
+                          <div
+                            style={{ marginLeft: "60px" }}
+                            className="col-md-12 text-center mt-3"
+                          >
+                            <button
+                              type="button"
+                              onClick={handleClick}
+                              className="btn  btn-outline-danger rounded-pill"
+                            >
+                              Select image
+                            </button>
+
+                            <input
+                              type="file"
+                              name="avatar"
+                              id="avatar"
+                              className="form-control"
+                              onChange={(e) => handleChange(e)}
+                              ref={hiddenFileInput}
+                              style={{ display: "none" }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                  {disableEdit === 0 ? (
-                    <div className={styles.containerMain}>
-                      <div className="row">
-                        <div
-                          className={`col-md-8  ${styles.containerStoreProduct}`}
-                        >
-                          <form
-                            onSubmit={(e) => {
-                              handleUpdate(e);
-                            }}
-                          >
-                            <div className="group-input mb-3">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Store Name
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <input
-                                    name="name"
-                                    id="name"
-                                    className={styles.inputStoreProfile}
-                                    type="text"
-                                    defaultValue={users.name}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="group-input mb-3">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Email
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <input
-                                    name="email"
-                                    id="email"
-                                    className={styles.inputStoreProfile}
-                                    type="email"
-                                    defaultValue={users.email}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="group-input mb-3">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Phone Number
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <input
-                                    name="phone"
-                                    id="phone"
-                                    className={styles.inputStoreProfile}
-                                    type="text"
-                                    defaultValue={users.phone}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="group-input">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Store Description
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <textarea
-                                    name="description"
-                                    id="description"
-                                    className={
-                                      styles.textareaDescriptionProfile
-                                    }
-                                    type="text"
-                                    defaultValue={users.description}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="row">
-                              <div className="col-md-3"></div>
-                              <div className="col-md-4 mt-3">
-                                <button
-                                  type="submit"
-                                  className={styles.buttonSaveProfile}
-                                >
-                                  Save
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div className="col-md-4 text-center">
-                          <div className={styles.containePictureUser}>
-                            <img
-                              src={
-                                users.avatar
-                                  ? users.avatar
-                                  : require("../../assets/dummy.jpg")
-                              }
-                              alt={users.name}
-                              width={120}
-                              height={120}
-                              className="rounded-circle"
-                            />
-                          </div>
-                          <div className="mt-3">
-                            <button
-                              type="button"
-                              onClick={handleClick}
-                              className="btn btn-outline-danger rounded-pill"
-                            >
-                              Select image
-                            </button>
-
-                            <input
-                              type="file"
-                              name="avatar"
-                              id="avatar"
-                              className="form-control"
-                              onChange={(e) => handleChange(e)}
-                              ref={hiddenFileInput}
-                              style={{ display: "none" }}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className={styles.containerMain}>
-                      <div className="row">
-                        <div
-                          className={`col-md-8  ${styles.containerStoreProduct}`}
-                        >
-                          <form
-                            onSubmit={(e) => {
-                              handleUpdate(e);
-                            }}
-                          >
-                            <div className="group-input mb-3">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Store Name
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <input
-                                    name="name"
-                                    id="name"
-                                    className={styles.inputStoreProfile}
-                                    type="text"
-                                    defaultValue={users.name}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="group-input mb-3">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Email
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <input
-                                    className={styles.inputStoreProfile}
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder={users.email}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="group-input mb-3">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Phone Number
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <input
-                                    className={styles.inputStoreProfile}
-                                    type="phone"
-                                    name="phone"
-                                    id="phone"
-                                    placeholder={users.phone}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="group-input">
-                              <div className="row">
-                                <div className="col-md-3">
-                                  <label className="text-secondary">
-                                    Store Description
-                                  </label>
-                                </div>
-                                <div className="col">
-                                  <textarea
-                                    className={
-                                      styles.textareaDescriptionProfile
-                                    }
-                                    type="text"
-                                    name="description"
-                                    id="description"
-                                    placeholder={users.description}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="row">
-                              <div className="col-md-3"></div>
-                              <div className="col-md-4 mt-3">
-                                <button
-                                  type="submit"
-                                  className="btn btn-danger w-100 px-4 rounded-pill"
-                                >
-                                  save
-                                </button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div className="col-md-4 text-center">
-                          <div className={styles.containePictureUser}>
-                            <img
-                              src={
-                                users.avatar
-                                  ? users.avatar
-                                  : require("../../assets/dummy.jpg")
-                              }
-                              alt={users.name}
-                              width={120}
-                              height={120}
-                              className="rounded-circle"
-                            />
-                          </div>
-                          <div className="mt-3">
-                            <button
-                              type="button"
-                              onClick={handleClick}
-                              className="btn btn-outline-danger rounded-pill"
-                            >
-                              Select image
-                            </button>
-
-                            <input
-                              type="file"
-                              name="avatar"
-                              id="avatar"
-                              className="form-control"
-                              onChange={(e) => handleChange(e)}
-                              ref={hiddenFileInput}
-                              style={{ display: "none" }}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               ) : viewPage === 1 ? (
                 <div className={styles.containerCardMyProduct}>
@@ -897,7 +781,7 @@ const ProfileSeller = () => {
                         <div className="btn-group">
                           <button
                             type="button"
-                            className={styles.buttonFilter}
+                            className={`${styles.buttonFilter} btn btn-outline-danger`}
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                           >
@@ -928,31 +812,7 @@ const ProfileSeller = () => {
                     </div>
 
                     <div>
-                      {/* <div className={styles.TitleAllItem}>
-                        <div>
-                          <div className="row">
-                            <div className="col" style={{ textAlign: "left" }}>
-                              <span className="text-secondary">
-                                Product name <i class="fa fa-sort"></i>
-                              </span>
-                            </div>
-                            <div className="col" style={{ textAlign: "right" }}>
-                              <div className="row">
-                                <div className="col">
-                                  <span className="text-secondary">
-                                    Price <i class="fa fa-sort"></i>
-                                  </span>
-                                </div>
-                                <div className="col-auto">
-                                  <span className="text-secondary">
-                                    Stock <i class="fa fa-sort"></i>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div> */}
+                    
                       <div className={styles.containerMainAllItem}>
                         {ownProduct === "" ? (
                           <div className="mt-4 text-center">
@@ -1025,168 +885,181 @@ const ProfileSeller = () => {
                         )}
                         {/* MODAL UPDATE */}
                         <div>
-                          <div
-                            className="modal fade"
-                            id="staticBackdrop"
-                            data-bs-backdrop="static"
-                            data-bs-keyboard="false"
-                            tabIndex={-1}
-                            aria-labelledby="staticBackdropLabel"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <h1
-                                    className="modal-title fs-5"
-                                    id="staticBackdropLabel"
-                                  >
-                                    Update Product
-                                  </h1>
-                                  <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                  />
-                                </div>
-                                <div className="modal-body">
-                                  <form>
-                                    <div className="form-group">
-                                      <label className="text-secondary">
-                                        Name Product
-                                      </label>
-                                      <div>
-                                        <input
-                                          className={styles.inputUpdateProduct}
-                                          type="text"
-                                          defaultValue={detailProduct.name}
-                                          name="name"
-                                          id="name"
-                                          onChange={handleInputProduct}
-                                        />
+                          <form  onSubmit={(e) => {
+                        handleUpdateProduct(e);
+                      }} >
+                            <div
+                              className="modal fade"
+                              id="staticBackdrop"
+                              data-bs-backdrop="static"
+                              data-bs-keyboard="false"
+                              tabIndex={-1}
+                              aria-labelledby="staticBackdropLabel"
+                              aria-hidden="true"
+                            >
+                              <div className="modal-dialog">
+                                <div className="modal-content">
+                                  <div className="modal-header">
+                                    <h1
+                                      className="modal-title fs-5"
+                                      id="staticBackdropLabel"
+                                    >
+                                      Update Product
+                                    </h1>
+                                    <button
+                                      type="button"
+                                      className="btn-close"
+                                      data-bs-dismiss="modal"
+                                      aria-label="Close"
+                                    />
+                                  </div>
+                                  <div className="modal-body">
+                                    <form>
+                                      <div className="form-group">
+                                        <label className="text-secondary">
+                                          Name Product
+                                        </label>
+                                        <div>
+                                          <input
+                                            className={
+                                              styles.inputUpdateProduct
+                                            }
+                                            type="text"
+                                            defaultValue={detailProduct.name}
+                                            name="name"
+                                            id="name"
+                                            onChange={handleInputProduct}
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div className="form-group mt-3">
-                                      <label className="text-secondary">
-                                        Stock
-                                      </label>
-                                      <div>
-                                        <div
-                                          className={`${styles.containerStockUpdate}`}
-                                        >
-                                          <div className="row">
-                                            <div className="col-auto">
-                                              <input
-                                                className={
-                                                  styles.inputStockUpdate
-                                                }
-                                                type="text"
-                                                defaultValue={
-                                                  detailProduct.stock
-                                                }
-                                                name="stock"
-                                                id="stock"
-                                                onChange={handleInputProduct}
-                                              />
-                                            </div>
-                                            <div
-                                              className="col-auto"
-                                              style={{
-                                                textAlign: "right",
-                                                paddingTop: "10px",
-                                              }}
-                                            >
-                                              <span className="text-secondary">
-                                                buah
-                                              </span>
+                                      <div className="form-group mt-3">
+                                        <label className="text-secondary">
+                                          Stock
+                                        </label>
+                                        <div>
+                                          <div
+                                            className={`${styles.containerStockUpdate}`}
+                                          >
+                                            <div className="row">
+                                              <div className="col-auto">
+                                                <input
+                                                  className={
+                                                    styles.inputStockUpdate
+                                                  }
+                                                  type="text"
+                                                  defaultValue={
+                                                    detailProduct.stock
+                                                  }
+                                                  name="stock"
+                                                  id="stock"
+                                                  onChange={handleInputProduct}
+                                                />
+                                              </div>
+                                              <div
+                                                className="col-auto"
+                                                style={{
+                                                  textAlign: "right",
+                                                  paddingTop: "10px",
+                                                }}
+                                              >
+                                                <span className="text-secondary">
+                                                  buah
+                                                </span>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-                                    </div>
-                                    <div className="form-group mt-3">
-                                      <label className="text-secondary">
-                                        Price
-                                      </label>
-                                      <div>
-                                        <input
-                                          className={styles.inputUpdateProduct}
-                                          type="text"
-                                          defaultValue={detailProduct.price}
-                                          name="price"
-                                          id="price"
-                                          onChange={handleInputProduct}
-                                        />
+                                      <div className="form-group mt-3">
+                                        <label className="text-secondary">
+                                          Price
+                                        </label>
+                                        <div>
+                                          <input
+                                            className={
+                                              styles.inputUpdateProduct
+                                            }
+                                            type="text"
+                                            defaultValue={detailProduct.price}
+                                            name="price"
+                                            id="price"
+                                            onChange={handleInputProduct}
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div className="form-group mt-3">
-                                      <label className="text-secondary">
-                                        Description
-                                      </label>
-                                      <div>
-                                        <input
-                                          className={styles.inputUpdateProduct}
-                                          type="text"
-                                          defaultValue={
-                                            detailProduct.description
-                                          }
-                                          name="description"
-                                          id="description"
-                                          onChange={handleInputProduct}
-                                        />
+                                      <div className="form-group mt-3">
+                                        <label className="text-secondary">
+                                          Description
+                                        </label>
+                                        <div>
+                                          <input
+                                            className={
+                                              styles.inputUpdateProduct
+                                            }
+                                            type="text"
+                                            defaultValue={
+                                              detailProduct.description
+                                            }
+                                            name="description"
+                                            id="description"
+                                            onChange={handleInputProduct}
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                  </form>
-                                </div>
-                                <div className="modal-footer">
-                                  <button
-                                    type="button"
-                                    className="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                  >
-                                    Close
-                                  </button>
-                                  <button
-                                    className="btn btn-primary"
-                                    onClick={onUpdateProduct}
-                                  >
-                                    Save
-                                  </button>
+                                    </form>
+                                  </div>
+                                  <div className="modal-footer">
+                                    <button
+                                      type="button"
+                                      className="btn btn-secondary"
+                                      data-bs-dismiss="modal"
+                                    >
+                                      Close
+                                    </button>
+                                    <button
+                                      className="btn btn-primary"
+                                      onClick={onUpdateProduct}
+                                    >
+                                      Save
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                            <div className="d-flex justify-content-center mt-3">
+                              <ul className="pagination">
+                                <li className="page-item">
+                                  <button
+                                    className="btn btn-warning-custom page-link"
+                                    disabled={page === 1}
+                                    onClick={() => PreviousPage()}
+                                  >
+                                    <i class="fa fa-backward"></i>
+                                  </button>
+                                </li>
+                                <li style={{ marginLeft: 3 }}>
+                                  <button className="btn btn-warning-custom page-link">
+                                    {page}
+                                  </button>
+                                </li>
+                                <li
+                                  style={{ marginLeft: 3 }}
+                                  className="page-item"
+                                >
+                                  <button
+                                    className="btn btn-warning-custom page-link"
+                                    disabled={ownProduct === 0}
+                                    onClick={() => NextPage()}
+                                  >
+                                    <i class="fa fa-forward"></i>
+                                  </button>
+                                </li>
+                              </ul>
+                            </div>
+                          </form>
                         </div>
                       </div>
                       {/* END MODAL UPDATE */}
-                      <div className="d-flex justify-content-center mt-3">
-                        <ul className="pagination">
-                          <li className="page-item">
-                            <button
-                              className="btn btn-warning-custom page-link"
-                              disabled={page === 1}
-                              onClick={() => PreviousPage()}
-                            >
-                              <i class="fa fa-backward"></i>
-                            </button>
-                          </li>
-                          <li style={{ marginLeft: 3 }}>
-                            <button className="btn btn-warning-custom page-link">
-                              {page}
-                            </button>
-                          </li>
-                          <li style={{ marginLeft: 3 }} className="page-item">
-                            <button
-                              className="btn btn-warning-custom page-link"
-                              disabled={ownProduct === 0}
-                              onClick={() => NextPage()}
-                            >
-                              <i class="fa fa-forward"></i>
-                            </button>
-                          </li>
-                        </ul>
-                      </div>
                     </div>
                   </div>
                 </div>
