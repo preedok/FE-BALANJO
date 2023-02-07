@@ -31,11 +31,11 @@ const ProductDetail = () => {
   const [data, setData] = useState([]);
   const [recommend, setRecommend] = useState([]);
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/product/${id}`)
+      .get(`https://balanjo-api.cyclic.app/product/${id}`)
       .then((response) => {
         console.log(response.data.data);
         setData(response.data.data);
@@ -48,7 +48,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/product`)
+      .get(`https://balanjo-api.cyclic.app/product`)
       .then((response) => {
         console.log(response.data.data);
         setRecommend(response.data.data);
@@ -78,7 +78,7 @@ const ProductDetail = () => {
     };
 
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/cart`, form, {
+      .post(`https://balanjo-api.cyclic.app/cart`, form, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -91,7 +91,7 @@ const ProductDetail = () => {
           text: `Item added to mybag!`,
           icon: "success",
         });
-        return navigate('/mybag')
+        return navigate("/mybag");
       })
       .catch((err) => {
         console.log(err);
@@ -101,8 +101,8 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Navbar/>
-      <section className={` ${styles.main}`} style={{marginTop:'-70px'}}>
+      <Navbar />
+      <section className={` ${styles.main}`} style={{ marginTop: "-70px" }}>
         <div className="container">
           <div className="row">
             <div className="col-md-12 py-5">
@@ -148,8 +148,7 @@ const ProductDetail = () => {
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper"
-              >
-              </Swiper>
+              ></Swiper>
             </div>
             <div className={`col-md-8 ${styles.rightsideInformation}`}>
               <p className={styles.textTitleproduct}>{data.name}</p>
@@ -192,9 +191,8 @@ const ProductDetail = () => {
                 </button>
               </div>
               <div className="d-flex flex-row mt-3">
-              
-                  <button className={`py-2 ${styles.btnbuyNow}`}>Chat</button>
-                
+                <button className={`py-2 ${styles.btnbuyNow}`}>Chat</button>
+
                 <Link to={`/mybag`}>
                   <button
                     className={`mx-3 py-2 ${styles.btnbuyNow}`}
@@ -212,7 +210,10 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          <div className={`row py-5 ${styles.pageTwo}`} style={{marginTop:'-80px'}}>
+          <div
+            className={`row py-5 ${styles.pageTwo}`}
+            style={{ marginTop: "-80px" }}
+          >
             <p className={styles.textTitlepagetwo}>Informasi Produk</p>
             <p className={`${styles.textSubtitle}`}>Condition</p>
             <p className={styles.textNew}>New</p>

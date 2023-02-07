@@ -13,7 +13,7 @@ const Search = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/product?search=${titleSearch}`)
+      .get(`https://balanjo-api.cyclic.app/product?search=${titleSearch}`)
       .then((response) => {
         setData(response.data.data);
         console.log(response.data.data);

@@ -30,7 +30,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/product`)
+      .get(`https://balanjo-api.cyclic.app/product`)
       .then((response) => {
         console.log(response.data);
         setData(response.data.data);
@@ -49,9 +49,7 @@ const Home = () => {
   const getDataProduct = (sort, asc, limit, page) => {
     axios
       .get(
-        `${
-          process.env.REACT_APP_BACKEND_URL
-        }/product?sortby=${sort}&order=${asc}&limit=${limit}${
+        `https://balanjo-api.cyclic.app/product?sortby=${sort}&order=${asc}&limit=${limit}${
           page ? `&page=${page}` : ""
         }`
       )

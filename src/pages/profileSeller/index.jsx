@@ -37,7 +37,7 @@ const ProfileSeller = () => {
   const id = data.seller_id;
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/seller/${id}`)
+      .get(`https://balanjo-api.cyclic.app/seller/${id}`)
       .then((res) => {
         console.log(res.data);
         setUsers(res.data.data);
@@ -52,7 +52,7 @@ const ProfileSeller = () => {
     let formData = new FormData(e.target);
     formData.append("seller_id", id);
     axios
-      .put(`${process.env.REACT_APP_BACKEND_URL}/seller/${id}`, formData)
+      .put(`https://balanjo-api.cyclic.app/seller/${id}`, formData)
       .then((res) => {
         console.log(res.data.data);
         swal({
@@ -104,7 +104,7 @@ const ProfileSeller = () => {
     inputForm.append("description", insertProduct.description);
     inputForm.append("image", imageProduct);
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/product`, inputForm, {
+      .post(`https://balanjo-api.cyclic.app/product`, inputForm, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
@@ -125,7 +125,7 @@ const ProfileSeller = () => {
 
   const getDataCategory = () => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/category`)
+      .get(`https://balanjo-api.cyclic.app/category`)
       .then((res) => {
         console.log(res.data);
         setCategory(res.data.data);
@@ -140,9 +140,7 @@ const ProfileSeller = () => {
     const token = localStorage.getItem("token");
     axios
       .get(
-        `${
-          process.env.REACT_APP_BACKEND_URL
-        }/product/myproduct?search=${query}&sortby=${sort}&order=${sortOrder}&limit=${limit}${
+        `https://balanjo-api.cyclic.app/product/myproduct?search=${query}&sortby=${sort}&order=${sortOrder}&limit=${limit}${
           page ? `&page=${page}` : ""
         }`,
         {
@@ -194,7 +192,7 @@ const ProfileSeller = () => {
 
   const deleteProduct = (product_id) => {
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/product/${product_id}`)
+      .delete(`https://balanjo-api.cyclic.app/product/${product_id}`)
       .then((res) => {
         console.log(res);
         swal({
@@ -211,7 +209,7 @@ const ProfileSeller = () => {
   const [detailProduct, setDetailProduct] = useState([]);
   const getDetailProduct = (product_id) => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/product/${product_id}`)
+      .get(`https://balanjo-api.cyclic.app/product/${product_id}`)
       .then((res) => {
         console.log(res.data);
         setDetailProduct(res.data.data);
@@ -246,7 +244,7 @@ const ProfileSeller = () => {
       inputForm.append("description", productUpdate.description);
     }
     axios
-      .put(`${process.env.REACT_APP_BACKEND_URL}/product/${id}`, inputForm)
+      .put(`https://balanjo-api.cyclic.app/product/${id}`, inputForm)
       .then((res) => {
         console.log(res.data);
         swal({
@@ -265,7 +263,7 @@ const ProfileSeller = () => {
     const token = localStorage.getItem("token");
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/order/myorder?search=${queryOrder}`,
+        `https://balanjo-api.cyclic.app/order/myorder?search=${queryOrder}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -290,7 +288,7 @@ const ProfileSeller = () => {
     }).then(async (confirm) => {
       if (confirm) {
         axios
-          .put(`${process.env.REACT_APP_BACKEND_URL}/order/pay/${val}`)
+          .put(`https://balanjo-api.cyclic.app/order/pay/${val}`)
           .then((res) => {
             swal({
               title: "Payment confirmed",
