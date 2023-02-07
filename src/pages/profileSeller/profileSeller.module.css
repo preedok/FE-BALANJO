@@ -172,7 +172,7 @@ textarea {
   color: white;
   border: none;
   height: 50px;
-  width: 100px;
+  width: 406px;
 }
 
 .containerCardMyProduct {
@@ -225,17 +225,19 @@ textarea {
   background-color: red;
   box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
   color: white;
-  border-radius: 7px;
-  height: 35px;
+  border-radius: 15px;
+  height: 30px;
+  width: 50px;
 }
 
 .updateProduct {
   border: none;
-  background-color: yellow;
+  background-color: rgb(38, 243, 19);
   box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
   color: black;
-  border-radius: 7px;
-  height: 35px;
+  border-radius: 15px;
+  height: 30px;
+  width: 50px;
 }
 
 .bgPaid {

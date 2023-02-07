@@ -18,7 +18,6 @@ const ProfileSeller = () => {
   const [iconDownStore, setIconDownStore] = useState(0);
   const [disableEdit, setDisableEdit] = useState(0);
   const [viewPage, setViwPage] = useState(0);
-  const [profile, setProfile] = useState({});
   const [category, setCategory] = useState([]);
   const [imageProduct, setImageProduct] = useState();
   const [query, setQuery] = useState("");
@@ -27,7 +26,6 @@ const ProfileSeller = () => {
   const [sort, setSort] = useState("product_id");
   const [sortOrder, setSortOrder] = useState("asc");
 
-
   useEffect(() => {
     getDataCategory();
     getOwnProduct(query, sort, sortOrder, 3, page);
@@ -35,10 +33,8 @@ const ProfileSeller = () => {
   }, [query, sort, sortOrder, page]);
 
   const [users, setUsers] = useState({});
-
   const data = JSON.parse(localStorage.getItem("seller"));
   const id = data.seller_id;
-
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/seller/${id}`)
@@ -58,6 +54,7 @@ const ProfileSeller = () => {
     axios
       .put(`${process.env.REACT_APP_BACKEND_URL}/seller/${id}`, formData)
       .then((res) => {
+        console.log(res.data.data);
         swal({
           title: "Update Success",
           text: `Your account have been updated`,
@@ -81,7 +78,6 @@ const ProfileSeller = () => {
   };
 
   const [insertProduct, setInsertProduct] = useState({
-    cid: "",
     name: "",
     stock: "",
     price: "",
@@ -101,7 +97,6 @@ const ProfileSeller = () => {
     e.preventDefault();
     const token = localStorage.getItem("token");
     let inputForm = new FormData();
-    inputForm.append("cid", insertProduct.cid);
     inputForm.append("name", insertProduct.name);
     inputForm.append("stock", insertProduct.stock);
     inputForm.append("price", insertProduct.price);
@@ -111,6 +106,7 @@ const ProfileSeller = () => {
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/product`, inputForm, {
         headers: {
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
       })
@@ -131,6 +127,7 @@ const ProfileSeller = () => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/category`)
       .then((res) => {
+        console.log(res.data);
         setCategory(res.data.data);
       })
       .catch((err) => {
@@ -200,7 +197,11 @@ const ProfileSeller = () => {
       .delete(`${process.env.REACT_APP_BACKEND_URL}/product/${product_id}`)
       .then((res) => {
         console.log(res);
-        alert("Delete Success");
+        swal({
+          title: "Product Delete",
+          text: `Delete Product Success`,
+          icon: "success",
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -313,7 +314,11 @@ const ProfileSeller = () => {
                   <div className={`${styles.bgImgLeft}`}>
                     <img
                       className={styles.imgLeft}
-                      src={users.avatar}
+                      src={
+                        users.avatar
+                          ? users.avatar
+                          : require("../../assets/dummy.jpg")
+                      }
                       alt=""
                     />
                   </div>
@@ -599,6 +604,8 @@ const ProfileSeller = () => {
                                 </div>
                                 <div className="col">
                                   <input
+                                    name="name"
+                                    id="name"
                                     className={styles.inputStoreProfile}
                                     type="text"
                                     defaultValue={users.name}
@@ -615,6 +622,8 @@ const ProfileSeller = () => {
                                 </div>
                                 <div className="col">
                                   <input
+                                    name="email"
+                                    id="email"
                                     className={styles.inputStoreProfile}
                                     type="email"
                                     defaultValue={users.email}
@@ -631,8 +640,10 @@ const ProfileSeller = () => {
                                 </div>
                                 <div className="col">
                                   <input
+                                    name="phone"
+                                    id="phone"
                                     className={styles.inputStoreProfile}
-                                    type="phone"
+                                    type="text"
                                     defaultValue={users.phone}
                                   />
                                 </div>
@@ -647,6 +658,8 @@ const ProfileSeller = () => {
                                 </div>
                                 <div className="col">
                                   <textarea
+                                    name="description"
+                                    id="description"
                                     className={
                                       styles.textareaDescriptionProfile
                                     }
@@ -711,7 +724,11 @@ const ProfileSeller = () => {
                         <div
                           className={`col-md-8  ${styles.containerStoreProduct}`}
                         >
-                          <form>
+                          <form
+                            onSubmit={(e) => {
+                              handleUpdate(e);
+                            }}
+                          >
                             <div className="group-input mb-3">
                               <div className="row">
                                 <div className="col-md-3">
@@ -721,9 +738,10 @@ const ProfileSeller = () => {
                                 </div>
                                 <div className="col">
                                   <input
+                                    name="name"
+                                    id="name"
                                     className={styles.inputStoreProfile}
                                     type="text"
-                                    name="name"
                                     defaultValue={users.name}
                                   />
                                 </div>
@@ -741,6 +759,7 @@ const ProfileSeller = () => {
                                     className={styles.inputStoreProfile}
                                     type="email"
                                     name="email"
+                                    id="email"
                                     placeholder={users.email}
                                   />
                                 </div>
@@ -758,6 +777,7 @@ const ProfileSeller = () => {
                                     className={styles.inputStoreProfile}
                                     type="phone"
                                     name="phone"
+                                    id="phone"
                                     placeholder={users.phone}
                                   />
                                 </div>
@@ -777,6 +797,7 @@ const ProfileSeller = () => {
                                     }
                                     type="text"
                                     name="description"
+                                    id="description"
                                     placeholder={users.description}
                                   />
                                 </div>
@@ -797,17 +818,17 @@ const ProfileSeller = () => {
                         </div>
                         <div className="col-md-4 text-center">
                           <div className={styles.containePictureUser}>
-                          <img
-                          src={
-                            users.avatar
-                              ? users.avatar
-                              : require("../../assets/dummy.jpg")
-                          }
-                          alt={users.name}
-                          width={120}
-                          height={120}
-                          className="rounded-circle"
-                        />
+                            <img
+                              src={
+                                users.avatar
+                                  ? users.avatar
+                                  : require("../../assets/dummy.jpg")
+                              }
+                              alt={users.name}
+                              width={120}
+                              height={120}
+                              className="rounded-circle"
+                            />
                           </div>
                           <div className="mt-3">
                             <button
@@ -942,6 +963,7 @@ const ProfileSeller = () => {
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
+                                <th>Image</th>
                                 <th>Name Product</th>
                                 <th>Stock</th>
                                 <th>Price</th>
@@ -954,6 +976,15 @@ const ProfileSeller = () => {
                               <tbody>
                                 <tr>
                                   <td>{index + 1}</td>
+                                  <td>
+                                    <img
+                                      src={data.image}
+                                      width="50px"
+                                      height="50px"
+                                      className="rounded-3"
+                                      alt=""
+                                    />
+                                  </td>
                                   <td>{data.name}</td>
                                   <td>{data.stock}</td>
                                   <td>Rp. {data.price}</td>
@@ -1031,6 +1062,7 @@ const ProfileSeller = () => {
                                           type="text"
                                           defaultValue={detailProduct.name}
                                           name="name"
+                                          id="name"
                                           onChange={handleInputProduct}
                                         />
                                       </div>
@@ -1054,6 +1086,7 @@ const ProfileSeller = () => {
                                                   detailProduct.stock
                                                 }
                                                 name="stock"
+                                                id="stock"
                                                 onChange={handleInputProduct}
                                               />
                                             </div>
@@ -1082,6 +1115,7 @@ const ProfileSeller = () => {
                                           type="text"
                                           defaultValue={detailProduct.price}
                                           name="price"
+                                          id="price"
                                           onChange={handleInputProduct}
                                         />
                                       </div>
@@ -1098,6 +1132,7 @@ const ProfileSeller = () => {
                                             detailProduct.description
                                           }
                                           name="description"
+                                          id="description"
                                           onChange={handleInputProduct}
                                         />
                                       </div>
@@ -1159,39 +1194,6 @@ const ProfileSeller = () => {
                 <div>
                   <div className={styles.containerSellingProduct}>
                     <div className={styles.containerCardInventory}>
-                      <div>
-                        <h5>Category</h5>
-                      </div>
-                      <hr />
-                      <div>
-                        <form>
-                          <div className="form-group">
-                            <label className="text-secondary">
-                              Type category
-                            </label>
-                            <div>
-                              <select
-                                className={styles.selectCategory}
-                                onChange={(e) =>
-                                  setInsertProduct({
-                                    ...insertProduct,
-                                    cid: e.target.value,
-                                  })
-                                }
-                              >
-                                <option className="text-secondary" value="">
-                                  --Choice Category--
-                                </option>
-                                {category.map((data) => (
-                                  <option value={data.category_id}>
-                                    {data.name}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
                       <div>
                         <div>
                           <h5 className="mt-4">Inventory</h5>
@@ -1400,6 +1402,7 @@ const ProfileSeller = () => {
                             <button
                               onClick={onSubmitInsertProduct}
                               className={styles.buttonJual}
+                              type="submit"
                             >
                               Jual
                             </button>

@@ -79,8 +79,9 @@ const ProfileBuyer = () => {
     const fileUploaded = event.target.files[0];
     console.log(fileUploaded);
   };
+
+
   const [viewPage, setViewPage] = useState(0);
-  const [viewCollapse, setViewCollapse] = useState(0);
   const [address, setAddress] = useState([]);
   const [editAddress, setEditAddress] = useState({});
 
