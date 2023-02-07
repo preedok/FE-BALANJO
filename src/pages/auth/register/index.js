@@ -23,7 +23,6 @@ const Register = () => {
 
   const onSubmit1 = (e) => {
     e.preventDefault();
-    // console.log(form)
     if (form.name === "" || form.phone === "" || form.password === "") {
       swal({
         title: "Register Failed",
@@ -31,11 +30,6 @@ const Register = () => {
         icon: "failed",
       });
     }
-    // }else {
-    //     if (form.password !== form.password2) {
-    //       alert("Password harus sama");
-    //       return navigate ("/register")
-    //     }
     const body = {
       name: form.name,
       password: form.password,
@@ -44,7 +38,7 @@ const Register = () => {
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/buyer/register`, body)
       .then((response) => {
-        console.log(response.data.message)
+        console.log(response.data.message);
         if (response.data.code !== 200) {
           swal({
             title: "Account Registered",
@@ -57,12 +51,11 @@ const Register = () => {
             text: `Log In to your account now!`,
             icon: "success",
           });
-         
         }
         return navigate("/login");
       })
       .catch((err) => {
-        console.log(err.data.message)
+        console.log(err.data.message);
         swal({
           title: "Register Failed",
           text: `Make sure your data is correct!`,
@@ -73,7 +66,6 @@ const Register = () => {
 
   const onSubmit2 = (e) => {
     e.preventDefault();
-    // console.log(form)
     if (
       form2.name === "" ||
       form2.email === "" ||
@@ -86,11 +78,6 @@ const Register = () => {
         icon: "failed",
       });
     }
-    // }else {
-    //     if (form2.password !== form2.password2) {
-    //       alert("Password harus sama");
-    //       return navigate ("/register")
-    //     }
     const body = {
       name: form2.name,
       password: form2.password,
@@ -101,7 +88,6 @@ const Register = () => {
       .post(`${process.env.REACT_APP_BACKEND_URL}/seller/register`, body)
       .then((response) => {
         if (response.data.code !== 200) {
-          
           swal({
             title: "Account Registered",
             text: `Log In to your account now!`,
@@ -113,7 +99,6 @@ const Register = () => {
             text: `Log In to your account now!`,
             icon: "success",
           });
-         
         }
         return navigate("/login");
       })

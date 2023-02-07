@@ -10,7 +10,6 @@ const Login = () => {
   const [role, setRole] = useState("Buyer");
   const navigate = useNavigate();
   const dispacth = useDispatch();
-  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -25,14 +24,12 @@ const Login = () => {
 
   const loginBuyer = (e) => {
     e.preventDefault();
-    setLoading(true);
-    dispacth(loginUser(form, navigate, loading));
+    dispacth(loginUser(form, navigate));
   };
 
   const loginSeller = (e) => {
     e.preventDefault();
-    setLoading(true);
-    dispacth(loginSellers(form, navigate, loading));
+    dispacth(loginSellers(form, navigate));
   };
 
   return (
