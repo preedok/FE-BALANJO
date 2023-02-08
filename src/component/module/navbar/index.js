@@ -17,7 +17,7 @@ const Navbar = () => {
   };
   return (
     <Fragment>
-      <nav className="navbar navbar-expand-lg mt-3 row">
+      <nav className="navbar navbar-expand-lg row">
         <div className="container-fluid col-md-10 col-11">
           <div className="d-flex col-md-2">
             <img src={logo} alt="" className="me-2" />
