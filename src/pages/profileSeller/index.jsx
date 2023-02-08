@@ -373,7 +373,7 @@ const ProfileSeller = () => {
                       className={styles.btnStore}
                       onClick={(e) => setViwPage(0)}
                     >
-                      Store Profile
+                      Profile
                     </button>
                   </div>
                 </div>

@@ -428,52 +428,46 @@ const ProfileBuyer = () => {
                       alt=""
                       width={65}
                       height={65}
-                      className="rounded-circle"
+                      className={`${styles.potos} rounded-circle`}
                       style={{ border: "2px solid red" }}
                     />
                   </div>
-                  <div className="col-md-6 ">
-                    <h4 className="mt-3 ms-5">{users.name}</h4>
-                  </div>
+                  <span className={styles.nama}>{users.name}</span>
                 </div>
-                <div className="col-md-12 ">
+                <div className={` col-md-12 mb-3 `}>
                   <small>
                     <img
                       src={user}
                       alt="usericon"
-                      className={`rounded-circle ${styles.bgBlue} text-white p-2`}
+                      className={`rounded-circle ${styles.bgBlue} text-white p-2 mb-2 `}
                     ></img>
                     <span
-                      className="ms-2"
+                      className="ms-2 mb-3"
                       onClick={() => setViewPage(0)}
                       style={{ cursor: "pointer" }}
                     >
                       Account
                     </span>
                   </small>
-                </div>
-                <div className="col-md-12 mt-3">
                   <small>
                     <img
                       src={location}
                       alt="locationIcon"
-                      className={`rounded-circle ${styles.bgOrange} text-white p-2`}
+                      className={`rounded-circle ${styles.bgOrange} text-white p-2 mb-2 ms-2`}
                     ></img>
                     <span
-                      className="ms-2"
+                      className="ms-2 "
                       onClick={() => setViewPage(1)}
                       style={{ cursor: "pointer" }}
                     >
                       Address
                     </span>
                   </small>
-                </div>
-                <div className="col-md-12 mt-3">
                   <small>
                     <img
                       src={order}
                       alt="orderIcon"
-                      className={`rounded-circle ${styles.bgPink} text-white p-2`}
+                      className={`rounded-circle ${styles.bgPink} text-white p-2 ms-1`}
                     ></img>
                     <span
                       className="ms-2"

@@ -189,6 +189,9 @@
     overflow: scroll;
     height: 270px;
   }
+  .potos {
+    padding-left: 20px !important;
+  }
 
   .navSearch {
     margin-left: -35px;
@@ -211,6 +214,13 @@
 
 @media screen and (max-width: 600px) {
   .dd {
-    margin-left: 27px;
+    width: 250px !important;
+    margin-left: 110px;
+  }
+  .mm {
+    margin-right: -50px !important;
+  }
+  .navSearch {
+    width: 310px !important;
   }
 }

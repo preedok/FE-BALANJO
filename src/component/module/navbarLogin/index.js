@@ -184,7 +184,7 @@ const NavbarLogin = () => {
                           <p className="fontBold">Category</p>
                           <div className="d-flex flex-row">
                             <div className="btn btn-light btn-outline-dark me-2">
-                              T-Shirt
+                              Shirt
                             </div>
                             <div className="btn btn-light btn-outline-dark me-2">
                               Short
@@ -229,14 +229,19 @@ const NavbarLogin = () => {
                     />
                   </Link>
                 </div>
-                <div className="d-flex justify-content-center align-items-center">
+                <div
+                  className={`${style.ss} d-flex justify-content-center align-items-center`}
+                >
                   <img
+                    className={style.potos}
                     style={{ marginTop: "13px", marginLeft: "20px" }}
                     src={mail}
                     alt=""
                   />
                 </div>
-                <div className=" dropdown d-flex justify-content-center align-items-center">
+                <div
+                  className={` ${style.mm} dropdown d-flex justify-content-center align-items-center`}
+                >
                   <img
                     style={{
                       borderRadius: "50%",
@@ -254,7 +259,7 @@ const NavbarLogin = () => {
                   />
 
                   <span
-                    className="mt-2 ms-2"
+                    className={`mt-2 ms-2 ${style.mm}`}
                     style={{ fontWeight: "600", fontSize: "17px" }}
                   >
                     {names}
