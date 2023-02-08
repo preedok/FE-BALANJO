@@ -22,22 +22,16 @@ import "./test.css";
 
 import { Pagination, Navigation } from "swiper";
 import axios from "axios";
+import { getProduct } from "../../redux/action/productAction";
+import { useDispatch } from "react-redux";
 
 const Home = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const [search, setSearch] = useState();
-
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/product`)
-      .then((response) => {
-        console.log(response.data);
-        setData(response.data.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  const dispatch = useDispatch();
+  useEffect((setData) => {
+    dispatch(getProduct(setData));
   }, []);
 
   const [sort, setSort] = useState("product_id");
@@ -49,9 +43,7 @@ const Home = () => {
   const getDataProduct = (sort, asc, limit, page) => {
     axios
       .get(
-        `${
-          process.env.REACT_APP_BACKEND_URL
-        }/product?sortby=${sort}&order=${asc}&limit=${limit}${
+        `https://balanjo-api.cyclic.app/product?sortby=${sort}&order=${asc}&limit=${limit}${
           page ? `&page=${page}` : ""
         }`
       )

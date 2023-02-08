@@ -37,7 +37,7 @@ const Checkout = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/cart/`, {
+      .get(`https://balanjo-api.cyclic.app/cart/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -54,7 +54,7 @@ const Checkout = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/address/`, {
+      .get(`https://balanjo-api.cyclic.app/address/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -79,7 +79,7 @@ const Checkout = () => {
         };
 
         // console.log(data)
-        await axios.post(`${process.env.REACT_APP_BACKEND_URL}/order/`, data, {
+        await axios.post(`https://balanjo-api.cyclic.app/order/`, data, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

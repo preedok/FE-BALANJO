@@ -29,7 +29,7 @@ const Mybag = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/cart/`, {
+      .get(`https://balanjo-api.cyclic.app/cart/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -56,12 +56,12 @@ const Mybag = () => {
     }).then(async (confirm) => {
       if (confirm) {
         axios
-          .delete(`${process.env.REACT_APP_BACKEND_URL}/cart/${id}`)
+          .delete(`https://balanjo-api.cyclic.app/cart/${id}`)
           .then(async () => {
             // const posts = bagState.filter((token) => token.id !== id);
             // setBagState({ data: posts });
             const result = await axios.get(
-              `${process.env.REACT_APP_BACKEND_URL}/cart/`,
+              `https://balanjo-api.cyclic.app/cart/`,
               {
                 headers: {
                   Authorization: `Bearer ${token}`,

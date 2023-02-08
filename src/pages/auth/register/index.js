@@ -31,18 +31,14 @@ const Register = () => {
         icon: "failed",
       });
     }
-    // }else {
-    //     if (form.password !== form.password2) {
-    //       alert("Password harus sama");
-    //       return navigate ("/register")
-    //     }
+
     const body = {
       name: form.name,
       password: form.password,
       email: form.email,
     };
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/buyer/register`, body)
+      .post(`https://balanjo-api.cyclic.app/buyer/register`, body)
       .then((response) => {
         console.log(response.data.message);
         if (response.data.code !== 200) {
@@ -97,7 +93,7 @@ const Register = () => {
       phone: form2.phone,
     };
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/seller/register`, body)
+      .post(`https://balanjo-api.cyclic.app/seller/register`, body)
       .then((response) => {
         if (response.data.code !== 200) {
           swal({
@@ -206,7 +202,7 @@ const Register = () => {
               </div>
               <div className="mt-3 justify-content-center align-items-center flex d-flex">
                 <p>
-                  Already have a Tokopedia account?{" "}
+                  Already have a Balanjo account?{" "}
                   <button
                     type="button"
                     onClick={() => navigate("/login")}
@@ -268,7 +264,7 @@ const Register = () => {
               </div>
               <div className="mt-3 justify-content-center align-items-center flex d-flex">
                 <p>
-                  Already have a Tokopedia account?{" "}
+                  Already have a Balanjo account?{" "}
                   <button
                     type="button"
                     onClick={() => navigate("/login")}

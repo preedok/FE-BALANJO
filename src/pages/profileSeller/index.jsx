@@ -10,6 +10,9 @@ import iconMyOrderEmpty from "../../assets/no-order.png";
 import searchIcon from "../../assets/search-icon.svg";
 import swal from "sweetalert";
 import Navbar from "../../component/module/NavbarConditon";
+import { useDispatch } from "react-redux";
+import { createProduct } from "../../redux/action/productAction";
+import { deleteProducts } from "../../redux/action/productAction";
 
 const ProfileSeller = () => {
   const navigate = useNavigate();
@@ -26,6 +29,7 @@ const ProfileSeller = () => {
   const [sort, setSort] = useState("product_id");
   const [sortOrder, setSortOrder] = useState("asc");
   const [users, setUsers] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getDataCategory();
@@ -37,7 +41,7 @@ const ProfileSeller = () => {
   const id = data.seller_id;
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/seller/${id}`)
+      .get(`https://balanjo-api.cyclic.app/seller/${id}`)
       .then((res) => {
         console.log(res.data);
         setUsers(res.data.data);
@@ -52,7 +56,7 @@ const ProfileSeller = () => {
     let formData = new FormData(e.target);
     formData.append("seller_id", id);
     axios
-      .put(`${process.env.REACT_APP_BACKEND_URL}/seller/${id}`, formData)
+      .put(`https://balanjo-api.cyclic.app/seller/${id}`, formData)
       .then((res) => {
         console.log(res.data.data);
         swal({
@@ -75,6 +79,7 @@ const ProfileSeller = () => {
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
     console.log(fileUploaded);
+    setImageProduct(fileUploaded);
   };
 
   const [insertProduct, setInsertProduct] = useState({
@@ -95,37 +100,12 @@ const ProfileSeller = () => {
 
   const onSubmitInsertProduct = (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
-    let inputForm = new FormData();
-    inputForm.append("name", insertProduct.name);
-    inputForm.append("stock", insertProduct.stock);
-    inputForm.append("price", insertProduct.price);
-    inputForm.append("condition", insertProduct.condition);
-    inputForm.append("description", insertProduct.description);
-    inputForm.append("image", imageProduct);
-    axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/product`, inputForm, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        console.log(res.data);
-        swal({
-          title: "Product Added",
-          text: `New product have been added`,
-          icon: "success",
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(createProduct(insertProduct, imageProduct));
   };
 
   const getDataCategory = () => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/category`)
+      .get(`https://balanjo-api.cyclic.app/category`)
       .then((res) => {
         console.log(res.data);
         setCategory(res.data.data);
@@ -140,9 +120,7 @@ const ProfileSeller = () => {
     const token = localStorage.getItem("token");
     axios
       .get(
-        `${
-          process.env.REACT_APP_BACKEND_URL
-        }/product/myproduct?search=${query}&sortby=${sort}&order=${sortOrder}&limit=${limit}${
+        `https://balanjo-api.cyclic.app/product/myproduct?search=${query}&sortby=${sort}&order=${sortOrder}&limit=${limit}${
           page ? `&page=${page}` : ""
         }`,
         {
@@ -193,25 +171,22 @@ const ProfileSeller = () => {
   };
 
   const deleteProduct = (product_id) => {
-    axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/product/${product_id}`)
-      .then((res) => {
-        console.log(res);
-        swal({
-          title: "Product Delete",
-          text: `Delete Product Success`,
-          icon: "success",
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(deleteProducts(product_id));
   };
 
-  const [detailProduct, setDetailProduct] = useState([]);
+  const [detailProduct, setDetailProduct] = useState({
+    product_id: "",
+    name: "",
+    stock: "",
+    price: "",
+    condition: "",
+    description: "",
+    image: "",
+  });
+
   const getDetailProduct = (product_id) => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/product/${product_id}`)
+      .get(`https://balanjo-api.cyclic.app/product/${product_id}`)
       .then((res) => {
         console.log(res.data);
         setDetailProduct(res.data.data);
@@ -221,42 +196,47 @@ const ProfileSeller = () => {
       });
   };
 
-  const [productUpdate, setProductUpdate] = useState({});
-  const handleInputProduct = (e) => {
-    setProductUpdate({
-      ...productUpdate,
-      [e.target.name]: e.target.value,
+  const [image, setImage] = useState(null);
+  const handleImageChange = (event) => {
+    setImage(event.target.files[0]);
+  };
+  const handleInputChange = (event) => {
+    setDetailProduct({
+      ...detailProduct,
+      [event.target.name]: event.target.value,
     });
   };
-
   const onUpdateProduct = (e) => {
     e.preventDefault();
-    const id = detailProduct.product_id;
-    let inputForm = new FormData();
-    if (productUpdate.name) {
-      inputForm.append("name", productUpdate.name);
-    }
-    if (productUpdate.stock) {
-      inputForm.append("stock", productUpdate.stock);
-    }
-    if (productUpdate.price) {
-      inputForm.append("price", productUpdate.price);
-    }
-    if (productUpdate.description) {
-      inputForm.append("description", productUpdate.description);
-    }
+    const token = localStorage.getItem("token");
+    const formData = new FormData();
+    formData.append("product_id", detailProduct.product_id);
+    formData.append("name", detailProduct.name);
+    formData.append("stock", detailProduct.stock);
+    formData.append("price", detailProduct.price);
+    formData.append("condition", detailProduct.condition);
+    formData.append("description", detailProduct.description);
+    formData.append("image", image, image.name);
     axios
-      .put(`${process.env.REACT_APP_BACKEND_URL}/product/${id}`, inputForm)
+      .put(
+        `https://balanjo-api.cyclic.app/product/${detailProduct.product_id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.data);
         swal({
-          title: "Product Updated",
-          text: `Your product have been updated`,
+          title: "Update Product Success",
           icon: "success",
         });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -265,7 +245,7 @@ const ProfileSeller = () => {
     const token = localStorage.getItem("token");
     axios
       .get(
-        `${process.env.REACT_APP_BACKEND_URL}/order/myorder?search=${queryOrder}`,
+        `https://balanjo-api.cyclic.app/order/myorder?search=${queryOrder}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -290,7 +270,7 @@ const ProfileSeller = () => {
     }).then(async (confirm) => {
       if (confirm) {
         axios
-          .put(`${process.env.REACT_APP_BACKEND_URL}/order/pay/${val}`)
+          .put(`https://balanjo-api.cyclic.app/order/pay/${val}`)
           .then((res) => {
             swal({
               title: "Payment confirmed",
@@ -325,7 +305,7 @@ const ProfileSeller = () => {
                 </div>
                 <div className="col-auto">
                   <div>
-                    <h4 className="mt-3">{users.name}</h4>
+                    <h5 className="mt-3">{users.name}</h5>
                   </div>
                 </div>
               </div>
@@ -842,6 +822,7 @@ const ProfileSeller = () => {
                                           }
                                         >
                                           <i className="fa fa-pencil" />
+                                          Update
                                         </button>
                                       </div>
                                       <div className="col-auto">
@@ -852,6 +833,7 @@ const ProfileSeller = () => {
                                           className={styles.deleteProduct}
                                         >
                                           <i class="fa fa-trash"></i>
+                                          Delete
                                         </button>
                                       </div>
                                     </div>
@@ -863,180 +845,191 @@ const ProfileSeller = () => {
                         )}
                         {/* MODAL UPDATE */}
                         <div>
-                          <form
-                            onSubmit={(e) => {
-                              onUpdateProduct(e);
-                            }}
+                          <div
+                            className="modal fade"
+                            id="staticBackdrop"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            tabIndex={-1}
+                            aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true"
                           >
-                            <div
-                              className="modal fade"
-                              id="staticBackdrop"
-                              data-bs-backdrop="static"
-                              data-bs-keyboard="false"
-                              tabIndex={-1}
-                              aria-labelledby="staticBackdropLabel"
-                              aria-hidden="true"
-                            >
-                              <div className="modal-dialog">
-                                <div className="modal-content">
-                                  <div className="modal-header">
-                                    <h1
-                                      className="modal-title fs-5"
-                                      id="staticBackdropLabel"
-                                    >
-                                      Update Product
-                                    </h1>
-                                    <button
-                                      type="button"
-                                      className="btn-close"
-                                      data-bs-dismiss="modal"
-                                      aria-label="Close"
-                                    />
-                                  </div>
-                                  <div className="modal-body">
-                                    <form>
-                                      <div className="form-group">
-                                        <label className="text-secondary">
-                                          Name Product
-                                        </label>
-                                        <div>
-                                          <input
-                                            className={
-                                              styles.inputUpdateProduct
-                                            }
-                                            type="text"
-                                            defaultValue={detailProduct.name}
-                                            name="name"
-                                            id="name"
-                                            onChange={handleInputProduct}
-                                          />
-                                        </div>
+                            <div className="modal-dialog">
+                              <div className="modal-content">
+                                <div className="modal-header">
+                                  <h1
+                                    className="modal-title fs-5"
+                                    id="staticBackdropLabel"
+                                  >
+                                    Update Product
+                                  </h1>
+                                  <button
+                                    type="button"
+                                    className="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                  />
+                                </div>
+                                <div className="modal-body">
+                                  <form
+                                    onSubmit={(e) => {
+                                      onUpdateProduct(e);
+                                    }}
+                                  >
+                                    <div className="form-group">
+                                      <label className="text-secondary">
+                                        Name Product
+                                      </label>
+                                      <div>
+                                        <input
+                                          className={styles.inputUpdateProduct}
+                                          type="text"
+                                          value={detailProduct.name}
+                                          name="name"
+                                          onChange={handleInputChange}
+                                        />
                                       </div>
-                                      <div className="form-group mt-3">
-                                        <label className="text-secondary">
-                                          Stock
-                                        </label>
-                                        <div>
-                                          <div
-                                            className={`${styles.containerStockUpdate}`}
-                                          >
-                                            <div className="row">
-                                              <div className="col-auto">
-                                                <input
-                                                  className={
-                                                    styles.inputStockUpdate
-                                                  }
-                                                  type="text"
-                                                  defaultValue={
-                                                    detailProduct.stock
-                                                  }
-                                                  name="stock"
-                                                  id="stock"
-                                                  onChange={handleInputProduct}
-                                                />
-                                              </div>
-                                              <div
-                                                className="col-auto"
-                                                style={{
-                                                  textAlign: "right",
-                                                  paddingTop: "10px",
-                                                }}
-                                              >
-                                                <span className="text-secondary">
-                                                  buah
-                                                </span>
-                                              </div>
+                                    </div>
+                                    <div className="form-group mt-3">
+                                      <label className="text-secondary">
+                                        Stock
+                                      </label>
+                                      <div>
+                                        <div
+                                          className={`${styles.containerStockUpdate}`}
+                                        >
+                                          <div className="row">
+                                            <div className="col-auto">
+                                              <input
+                                                className={
+                                                  styles.inputStockUpdate
+                                                }
+                                                type="text"
+                                                value={detailProduct.stock}
+                                                name="stock"
+                                                onChange={handleInputChange}
+                                              />
+                                            </div>
+                                            <div
+                                              className="col-auto"
+                                              style={{
+                                                textAlign: "right",
+                                                paddingTop: "10px",
+                                              }}
+                                            >
+                                              <span className="text-secondary">
+                                                buah
+                                              </span>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-                                      <div className="form-group mt-3">
-                                        <label className="text-secondary">
-                                          Price
-                                        </label>
-                                        <div>
-                                          <input
-                                            className={
-                                              styles.inputUpdateProduct
-                                            }
-                                            type="text"
-                                            defaultValue={detailProduct.price}
-                                            name="price"
-                                            id="price"
-                                            onChange={handleInputProduct}
-                                          />
-                                        </div>
+                                    </div>
+                                    <div className="form-group mt-3">
+                                      <label className="text-secondary">
+                                        Price
+                                      </label>
+                                      <div>
+                                        <input
+                                          className={styles.inputUpdateProduct}
+                                          type="text"
+                                          value={detailProduct.price}
+                                          name="price"
+                                          onChange={handleInputChange}
+                                        />
                                       </div>
-                                      <div className="form-group mt-3">
-                                        <label className="text-secondary">
-                                          Description
-                                        </label>
-                                        <div>
-                                          <input
-                                            className={
-                                              styles.inputUpdateProduct
-                                            }
-                                            type="text"
-                                            defaultValue={
-                                              detailProduct.description
-                                            }
-                                            name="description"
-                                            id="description"
-                                            onChange={handleInputProduct}
-                                          />
-                                        </div>
+                                    </div>
+                                    <div className="form-group mt-3">
+                                      <label className="text-secondary">
+                                        Condition
+                                      </label>
+                                      <div>
+                                        <input
+                                          className={styles.inputUpdateProduct}
+                                          type="text"
+                                          value={detailProduct.condition}
+                                          name="condition"
+                                          onChange={handleInputChange}
+                                        />
                                       </div>
-                                      <div className="modal-footer">
-                                        <button
-                                          type="button"
-                                          className="btn btn-secondary"
-                                          data-bs-dismiss="modal"
-                                        >
-                                          Close
-                                        </button>
-                                        <button
-                                          className="btn btn-primary"
-                                          onClick={onUpdateProduct}
-                                        >
-                                          Save
-                                        </button>
+                                    </div>
+                                    <div className="form-group mt-3">
+                                      <label className="text-secondary">
+                                        Description
+                                      </label>
+                                      <div>
+                                        <input
+                                          className={styles.inputUpdateProduct}
+                                          type="text"
+                                          value={detailProduct.description}
+                                          name="description"
+                                          onChange={handleInputChange}
+                                        />
                                       </div>
-                                    </form>
-                                  </div>
+                                    </div>
+                                    <div className="form-group mt-3">
+                                      <label className="text-secondary">
+                                        Image :
+                                      </label>
+                                      <div>
+                                        <input
+                                          className={styles.inputUpdateProduct}
+                                          type="file"
+                                          name="image"
+                                          onChange={handleImageChange}
+                                        />
+                                      </div>
+                                    </div>
+                                    <div className="modal-footer">
+                                      <button
+                                        type="button"
+                                        className="btn btn-secondary"
+                                        data-bs-dismiss="modal"
+                                      >
+                                        Close
+                                      </button>
+                                      <button
+                                        type="submit"
+                                        className="btn btn-primary"
+                                      >
+                                        Save
+                                      </button>
+                                    </div>
+                                  </form>
                                 </div>
                               </div>
                             </div>
-                            <div className="d-flex justify-content-center mt-3">
-                              <ul className="pagination">
-                                <li className="page-item">
-                                  <button
-                                    className="btn btn-warning-custom page-link"
-                                    disabled={page === 1}
-                                    onClick={() => PreviousPage()}
-                                  >
-                                    <i class="fa fa-backward"></i>
-                                  </button>
-                                </li>
-                                <li style={{ marginLeft: 3 }}>
-                                  <button className="btn btn-warning-custom page-link">
-                                    {page}
-                                  </button>
-                                </li>
-                                <li
-                                  style={{ marginLeft: 3 }}
-                                  className="page-item"
+                          </div>
+                          <div className="d-flex justify-content-center mt-3">
+                            <ul className="pagination">
+                              <li className="page-item">
+                                <button
+                                  className="btn btn-warning-custom page-link"
+                                  disabled={page === 1}
+                                  onClick={() => PreviousPage()}
                                 >
-                                  <button
-                                    className="btn btn-warning-custom page-link"
-                                    disabled={ownProduct === 0}
-                                    onClick={() => NextPage()}
-                                  >
-                                    <i class="fa fa-forward"></i>
-                                  </button>
-                                </li>
-                              </ul>
-                            </div>
-                          </form>
+                                  <i class="fa fa-backward"></i>
+                                </button>
+                              </li>
+                              <li style={{ marginLeft: 3 }}>
+                                <button className="btn btn-warning-custom page-link">
+                                  {page}
+                                </button>
+                              </li>
+                              <li
+                                style={{ marginLeft: 3 }}
+                                className="page-item"
+                              >
+                                <button
+                                  className="btn btn-warning-custom page-link"
+                                  disabled={ownProduct === 0}
+                                  onClick={() => NextPage()}
+                                >
+                                  <i class="fa fa-forward"></i>
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                       {/* END MODAL UPDATE */}
@@ -1353,6 +1346,7 @@ const ProfileSeller = () => {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
+                              <th>Image</th>
                               <th>Name Product</th>
                               <th>Quantity</th>
                               <th>Price</th>
@@ -1365,6 +1359,14 @@ const ProfileSeller = () => {
                             <tbody>
                               <tr>
                                 <td>{index + 1}</td>
+                                <td>
+                                  <img
+                                    className="rounded-3"
+                                    width="50px"
+                                    height="50px"
+                                    src={data.image}
+                                  />
+                                </td>
                                 <td>{data.name}</td>
                                 <td>{data.qty}</td>
                                 <td>Rp. {data.price}</td>
@@ -1484,6 +1486,7 @@ const ProfileSeller = () => {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
+                              <th>Image</th>
                               <th>Name Product</th>
                               <th>Quantity</th>
                               <th>Price</th>
@@ -1497,6 +1500,14 @@ const ProfileSeller = () => {
                               {data.status === 2 ? (
                                 <tr>
                                   <td>{index + 1}</td>
+                                  <td>
+                                    <img
+                                      className="rounded-3"
+                                      width="50px"
+                                      height="50px"
+                                      src={data.image}
+                                    />
+                                  </td>
                                   <td>{data.name}</td>
                                   <td>{data.qty}</td>
                                   <td>Rp. {data.price}</td>
@@ -1607,6 +1618,7 @@ const ProfileSeller = () => {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
+                              <th>Image</th>
                               <th>Name Product</th>
                               <th>Quantity</th>
                               <th>Price</th>
@@ -1620,6 +1632,15 @@ const ProfileSeller = () => {
                               <tbody>
                                 <tr>
                                   <td>{index + 1}</td>
+                                  <td>
+                                    {" "}
+                                    <img
+                                      className="rounded-3"
+                                      width="50px"
+                                      height="50px"
+                                      src={data.image}
+                                    />
+                                  </td>
                                   <td>{data.name}</td>
                                   <td>{data.qty}</td>
                                   <td>Rp. {data.price}</td>
@@ -1732,6 +1753,7 @@ const ProfileSeller = () => {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
+                              <th>Image</th>
                               <th>Name Product</th>
                               <th>Quantity</th>
                               <th>Price</th>
@@ -1745,6 +1767,14 @@ const ProfileSeller = () => {
                               <tbody>
                                 <tr>
                                   <td>{index + 1}</td>
+                                  <td>
+                                    <img
+                                      className="rounded-3"
+                                      width="50px"
+                                      height="50px"
+                                      src={data.image}
+                                    />
+                                  </td>
                                   <td>{data.name}</td>
                                   <td>{data.qty}</td>
                                   <td>Rp. {data.price}</td>

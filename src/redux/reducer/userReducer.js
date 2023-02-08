@@ -18,19 +18,13 @@ export const usersReducer = (state = initialState, action) => {
       data: action.payload,
       isLoading: false,
     };
+  } else if (action.type === "SELLER_LOGIN_PENDING") {
+    return {
+      ...state,
+      data: action.payload,
+      isLoading: true,
+    };
   } else if (action.type === "SELLER_LOGIN_SUCCESS") {
-    return {
-      ...state,
-      data: action.payload,
-      isLoading: false,
-    };
-  } else if (action.type === "REGISTER_CUSTOMER_SUCCESS") {
-    return {
-      ...state,
-      data: action.payload,
-      isLoading: false,
-    };
-  } else if (action.type === "REGISTER_SELLER_SUCCESS") {
     return {
       ...state,
       data: action.payload,

@@ -20,8 +20,6 @@
   margin-left: -20px;
 }
 
-
-
 .containerSatu {
   padding: 0px !important;
 }
@@ -225,9 +223,9 @@ textarea {
   background-color: red;
   box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
   color: white;
-  border-radius: 15px;
-  height: 30px;
-  width: 50px;
+  border-radius: 9px;
+  height: 40px;
+  width: 120px;
 }
 
 .updateProduct {
@@ -235,9 +233,10 @@ textarea {
   background-color: rgb(38, 243, 19);
   box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
   color: black;
-  border-radius: 15px;
-  height: 30px;
-  width: 50px;
+  border-radius: 9px;
+  height: 40px;
+  width: 120px;
+  margin-bottom: 5px;
 }
 
 .bgPaid {
@@ -246,6 +245,7 @@ textarea {
   box-shadow: 1px 1px 1px 1px rgb(230, 230, 230);
   color: white;
   border-radius: 7px;
+  width: 120px;
   height: 35px;
 }
 
@@ -502,7 +502,7 @@ textarea {
   }
 
   .searchMyProduct {
-    background: none;
+    background: rgb(190, 190, 190);
     border: none;
     border-radius: 23px;
     width: 266px;
