@@ -55,7 +55,7 @@ export const loginSellers =
         icon: "success",
       });
 
-      navigate("/");
+      navigate("/store");
     } catch (error) {
       swal.fire({
         text: error.response.data.message,

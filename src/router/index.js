@@ -19,7 +19,6 @@ import SearchCategory from "../pages/searchCategory";
 import ProductDetail from "../pages/productDetail";
 import Mybag from "../pages/mybag";
 import Checkout from "../pages/checkout";
-
 import ProfileBuyer from "../pages/profileBuyer";
 import ProfileSeller from "../pages/profileSeller";
 
