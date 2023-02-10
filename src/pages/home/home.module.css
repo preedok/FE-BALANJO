@@ -58,19 +58,19 @@
 }
 
 .main {
-  background-color: #ffffff;
+  background-color: white;
   height: max-content;
   padding-bottom: 50px;
 }
 
 .topSwiper {
-  background-color: transparent;
+  background: none;
   height: max-content;
   padding-bottom: 50px;
 }
 
 .categorySwiper {
-  background-color: transparent;
+  background: none;
   height: max-content;
   padding-bottom: 50px;
 }

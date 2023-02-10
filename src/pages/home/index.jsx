@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./home.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import icCardTshirt from "../../assets/shirt.png";
-import icCardShorts from "../../assets/short.png";
-import icCardJacket from "../../assets/jacket.png";
-import icCardPants from "../../assets/pants.png";
-import icCardShoes from "../../assets/shoes.png";
 import Carousel from "../../component/Carousel/index";
-import CardProduct from "../../component/module/cardProduct";
+import Category from "../../component/Category/index"
+import CardProduct from "../../component/module/cardProduct/index";
 import Navs from "../../component/module/NavbarConditon";
-import CategoryCard from "../../component/CategoryCard";
 import "./App.css";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // // Import Swiper styles
 import "swiper/css";
@@ -122,7 +114,10 @@ const Home = () => {
                   <p className={styles.textSubmain}>
                     What are you currently looking for
                   </p>
-<CategoryCard/>
+
+                  <div className="d-flex row">
+                    <Category/>
+                  </div>
                 </div>
               </div>
             </div>

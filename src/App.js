@@ -4,6 +4,7 @@ import Router from "./router";
 import logo from "./assets/icon/logo.png";
 
 function App() {
+  
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {

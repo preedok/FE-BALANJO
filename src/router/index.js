@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 
 import Login from "../pages/auth/login";
-import Data from "../pages/dataTable/tables";
 import Register from "../pages/auth/register";
 import Forgot from "../pages/auth/forgot";
 import Reset from "../pages/auth/reset";
@@ -57,7 +56,7 @@ const Router = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/reset" element={<Reset />} />
-          <Route path="/data" element={<Data />} />
+        
 
           {/* Main Routes */}
           <Route path="/" element={<Home />} />

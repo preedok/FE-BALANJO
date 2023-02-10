@@ -65,6 +65,7 @@ const Login = () => {
       </div>
     );
   }
+  
   return (
     <>
       <section className={`${styles["auth-section"]}`}>
