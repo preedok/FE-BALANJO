@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./productDetail.module.css";
 import Navbar from "../../component/module/NavbarConditon";
-
+import {LineWave} from "react-loader-spinner";
 import icStar from "../../assets/icStar.svg";
 import icMinus from "../../assets/minus-icon.svg";
 import icPlus from "../../assets/plus-icon.svg";
@@ -10,6 +10,7 @@ import icBigstar from "../../assets/Star.svg";
 import CardProduct from "../../component/module/cardProduct";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -26,6 +27,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import swal from "sweetalert";
 
 const ProductDetail = () => {
+ 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const [data, setData] = useState([]);
@@ -98,6 +100,38 @@ const ProductDetail = () => {
         alert("Failed");
       });
   };
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor:'red'
+        }}
+      >
+        <LineWave
+          height="145"
+          width="140"
+          color="white"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </div>
+    );
+  }
 
   return (
     <>

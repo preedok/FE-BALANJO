@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import {LineWave} from "react-loader-spinner";
 
 const Mybag = () => {
   const [bagState, setBagState] = useState([]);
@@ -75,6 +76,40 @@ const Mybag = () => {
     });
   };
 
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor:'red'
+        }}
+      >
+        <LineWave
+          height="145"
+          width="140"
+          color="white"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </div>
+    );
+  }
+
+  
   return (
     <>
       <Navbar />

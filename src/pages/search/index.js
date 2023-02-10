@@ -4,6 +4,7 @@ import icStar from "../../assets/icStar.svg";
 import Navbar from "../../component/module/NavbarConditon";
 import { Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
+import {LineWave} from "react-loader-spinner";
 
 const Search = () => {
   const [queryParam] = useSearchParams();
@@ -24,7 +25,38 @@ const Search = () => {
   }, [titleSearch]);
 
   console.log(titleSearch);
-
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor:'red'
+        }}
+      >
+        <LineWave
+          height="145"
+          width="140"
+          color="white"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </div>
+    );
+  }
   return (
     <>
       <Navbar />

@@ -6,6 +6,7 @@ import user from "../../assets/user-icon.svg";
 import location from "../../assets/location-icon.svg";
 import order from "../../assets/order-icon.svg";
 import Navbar from "../../component/module/NavbarConditon";
+import {LineWave} from "react-loader-spinner";
 import axios from "axios";
 import swal from "sweetalert";
 import DataTable from "react-data-table-component";
@@ -408,6 +409,39 @@ const ProfileBuyer = () => {
     };
     pdfMake.createPdf(docDefinition).download("data order product balanjo.pdf");
   };
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor:'red'
+        }}
+      >
+        <LineWave
+          height="145"
+          width="140"
+          color="white"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </div>
+    );
+  }
 
   return (
     <>

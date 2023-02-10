@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./searchCategory.module.css";
 import icStar from "../../assets/icStar.svg";
-
+import {LineWave} from "react-loader-spinner";
 import Navbar from "../../component/module/NavbarConditon";
 
 import axios from "axios";
@@ -21,7 +21,38 @@ const SearchCategory = () => {
         console.error(error);
       });
   }, [id]);
-
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor:'red'
+        }}
+      >
+        <LineWave
+          height="145"
+          width="140"
+          color="white"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </div>
+    );
+  }
   return (
     <>
       <Navbar />

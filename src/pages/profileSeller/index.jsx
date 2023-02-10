@@ -9,6 +9,7 @@ import iconEmpety from "../../assets/no-product.png";
 import iconMyOrderEmpty from "../../assets/no-order.png";
 import searchIcon from "../../assets/search-icon.svg";
 import swal from "sweetalert";
+import {LineWave} from "react-loader-spinner";
 import Navbar from "../../component/module/NavbarConditon";
 import { useDispatch } from "react-redux";
 import { createProduct } from "../../redux/action/productAction";
@@ -280,6 +281,39 @@ const ProfileSeller = () => {
       }
     });
   };
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor:'red'
+        }}
+      >
+        <LineWave
+          height="145"
+          width="140"
+          color="white"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </div>
+    );
+  }
+
   return (
     <section>
       <div className="container-fluid-custom ">

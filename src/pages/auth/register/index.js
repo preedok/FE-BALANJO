@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "../auth.module.css";
 import logo from "../../../assets/logo.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
+import {LineWave} from "react-loader-spinner";
 
 const Register = () => {
   const [role, setRole] = useState("Buyer");
@@ -118,6 +119,39 @@ const Register = () => {
         });
       });
   };
+
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor:'red'
+        }}
+      >
+        <LineWave
+          height="145"
+          width="140"
+          color="white"
+          ariaLabel="line-wave"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          firstLineColor=""
+          middleLineColor=""
+          lastLineColor=""
+        />
+      </div>
+    );
+  }
   return (
     <>
       <section className={`${styles["auth-section"]}`}>
