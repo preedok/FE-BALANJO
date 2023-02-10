@@ -42,6 +42,7 @@ const Login = () => {
     return (
       <div
         style={{
+          paddingLeft:'50px',
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -51,7 +52,7 @@ const Login = () => {
       >
         <LineWave
           height="145"
-          width="140"
+          width="200"
           color="white"
           ariaLabel="line-wave"
           wrapperStyle={{}}

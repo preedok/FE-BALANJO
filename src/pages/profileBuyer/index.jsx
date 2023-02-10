@@ -420,6 +420,7 @@ const ProfileBuyer = () => {
     return (
       <div
         style={{
+          paddingLeft:'50px',
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -494,7 +495,7 @@ const ProfileBuyer = () => {
                       onClick={() => setViewPage(1)}
                       style={{ cursor: "pointer" }}
                     >
-                      Address
+                      Addres
                     </span>
                   </small>
                   <small>

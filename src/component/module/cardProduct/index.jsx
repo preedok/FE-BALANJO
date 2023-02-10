@@ -15,7 +15,7 @@ const CardProduct = ({
       {/* {JSON.stringify(data)} */}
       <div className="col">
         <Link to={byId} className={styles.cstmLink}>
-          <div style={{ bordeRadius: "25px" }} className="card h-100 mx-1">
+          <div  className="card h-100 mx-1">
             <img
               src={linkImage}
               className="card-img-top"

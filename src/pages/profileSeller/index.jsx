@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { createProduct } from "../../redux/action/productAction";
 import { deleteProducts } from "../../redux/action/productAction";
 
+
 const ProfileSeller = () => {
   const navigate = useNavigate();
   const [icondown, setIconDown] = useState(0);
@@ -291,6 +292,7 @@ const ProfileSeller = () => {
     return (
       <div
         style={{
+          paddingLeft:'50px',
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -343,7 +345,7 @@ const ProfileSeller = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-2">
+              <div className="mt-2 d-flex">
                 <div>
                   {iconDownStore === 0 ? (
                     <button
@@ -364,7 +366,7 @@ const ProfileSeller = () => {
                           </div>
                         </div>
                         <div className="col">
-                          <h6 className="mt-2">Store</h6>
+                          <h6 className="mt-3">Store</h6>
                         </div>
                         <div className="col">
                           <i className="fa fa-sort-up mt-3" />
@@ -381,7 +383,7 @@ const ProfileSeller = () => {
                     >
                       <div className="row">
                         <div className="col">
-                          <div className={styles.bgHome}>
+                          <div style={{marginTop:'14px'}} className={styles.bgHome}>
                             <img
                               className={styles.iconHome}
                               src={iconHome}
@@ -691,7 +693,7 @@ const ProfileSeller = () => {
                           </div>
                         </div>
                         <div className="col-md-3 bg-white mt-3 ">
-                          <div className="col-md-12 px-3 text-center border-start">
+                          <div className="col-md-12 px-1 text-center border-start">
                             <img
                               src={
                                 users.avatar
@@ -705,13 +707,13 @@ const ProfileSeller = () => {
                             />
                           </div>
                           <div
-                            style={{ marginLeft: "60px" }}
-                            className="col-md-12 text-center mt-3"
+                            
+                            className={`${styles.ss} col-md-12 text-center mt-3`}
                           >
                             <button
                               type="button"
                               onClick={handleClick}
-                              className="btn  btn-outline-danger rounded-pill"
+                              className={` btn  btn-outline-danger rounded-pill`}
                             >
                               Select image
                             </button>

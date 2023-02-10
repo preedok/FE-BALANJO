@@ -91,9 +91,9 @@
 
 .containerProfileSideRight {
   height: auto;
-  padding-left: 10px;
+  padding-left: 50px;
   padding-right: 50px;
-  padding-top: 25px;
+  padding-top: 15px;
   padding-bottom: 50px !important;
 }
 
@@ -109,6 +109,14 @@
 
 hr {
   border: 1px solid #d4d4d4;
+}
+.ss{
+  margin-left: 60px;
+}
+@media screen and (max-width:600px) {
+  .ss{
+    margin-left: -1px !important;
+  }
 }
 
 .containerMain {

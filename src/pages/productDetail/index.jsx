@@ -110,6 +110,7 @@ const ProductDetail = () => {
     return (
       <div
         style={{
+          paddingLeft:'50px',
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

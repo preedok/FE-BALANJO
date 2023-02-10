@@ -9,6 +9,7 @@ import icCardShoes from "../../assets/shoes.png";
 import Carousel from "../../component/Carousel/index";
 import CardProduct from "../../component/module/cardProduct";
 import Navs from "../../component/module/NavbarConditon";
+import CategoryCard from "../../component/CategoryCard";
 import "./App.css";
 
 // Import Swiper React components
@@ -121,58 +122,7 @@ const Home = () => {
                   <p className={styles.textSubmain}>
                     What are you currently looking for
                   </p>
-
-                  <Swiper
-                    slidesPerView={5}
-                    spaceBetween={30}
-                    slidesPerGroup={1}
-                    loop={true}
-                    loopFillGroupWithBlank={true}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper"
-                  >
-                    <div>
-                      <SwiperSlide>
-                        {" "}
-                        <Link to={`/v1/category/1`}>
-                          {" "}
-                          <img src={icCardTshirt} alt="icCard" />{" "}
-                        </Link>{" "}
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        {" "}
-                        <Link to={`/v1/category/1`}>
-                          {" "}
-                          <img src={icCardShorts} alt="icCard" />{" "}
-                        </Link>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        {" "}
-                        <Link to={`/v1/category/1`}>
-                          {" "}
-                          <img src={icCardJacket} alt="icCard" />{" "}
-                        </Link>{" "}
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        {" "}
-                        <Link to={`/v1/category/1`}>
-                          {" "}
-                          <img src={icCardPants} alt="icCard" />{" "}
-                        </Link>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        {" "}
-                        <Link to={`/v1/category/1`}>
-                          {" "}
-                          <img src={icCardShoes} alt="icCard" />{" "}
-                        </Link>
-                      </SwiperSlide>
-                    </div>
-                  </Swiper>
+<CategoryCard/>
                 </div>
               </div>
             </div>
