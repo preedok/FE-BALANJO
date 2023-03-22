@@ -42,7 +42,7 @@ Blanja API is a RESTful API used in Blanja Aplication. This API handle user mana
 ### Built With
 
 - [Bootstrap Css](https://getbootstrap.com/)
-- [Next js](https://nextjs.org/)
+- [React Js](https://reactjs.org/)
 - and other
 
 
