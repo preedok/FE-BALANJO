@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+<br />
+<p align="center">
+<div align="center">
+  <img height="150" src="https://www.freeiconspng.com/uploads/logo-whatsapp-png-pic-0.png" alt="telegram" border="0"/>
+</div>
+  <h3 align="center">BALANJO</h3>
+  <p align="center">
+    <a href="https://github.com/Iqbalapredo/FE-WhatsApp"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="https://fe-whats-app.vercel.app/">View Demo</a>
+    ·
+    <a href="">Report Bug</a>
+    ·
+    <a href="">Request Feature</a>
+  </p>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-In the project directory, you can run:
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Setup .env](#setup-env)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [Related Project](#related-project)
+- [Contact](#contact)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `npm test`
+WhatsApp is realtime chat application, where user can register and login to their account and connected to another user. User can edit photo and bio in their profile. This app made by React JS and Socket.IO, and this app use Rest API from [WhatsApprest](https://be-whataapp-production.up.railway.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<!-- GETTING STARTED -->
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This is an example of how to list things you need to use the software and how to install them.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [nodejs](https://nodejs.org/en/download/)
+* [Bootstrap Css](https://getbootstrap.com/)
+* [React js](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Clone This Front End Repo
+```
+git clone https://github.com/Iqbalapredo/FE-WhatsApp.git
+```
+- Go To Folder Repo
+```
+cd Telegram-FE
+```
+- Install Module
+```
+npm install
+```
+- <a href="#setup-env">Setup .env</a>
+- Type ` npm run dev` To Start Website
+- Type ` npm run production` To Start Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Setup .env
+Create .env file in your root project folder.
+```
+REACT_APP_BACKEND_URL = [BACKEND_URL]
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- ROADMAP -->
+## Screenshots
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<table>
+ <tr>
+    <td><img width="350px" src="./documentation/room.png"  border="0" border="0" alt="1" /></td>
+    <td> <img width="350px" src="./documentation/update.png" \ border="0"  border="0"  border="0"  alt="2" /></td>
+  </tr>
+   <tr>
+    <td>Chat Room</td>
+    <td>Update Profile</td>
+  </tr>
 
-## Learn More
+  <tr>
+    <td><img width="350px" src="./documentation/login.png"  border="0" border="0" alt="3" /> </td>
+     <td><img width="350px" src="./documentation/home wa.png"  border="0" border="0" alt="4" /></td>
+  </tr>
+   <tr>
+    <td>Login</td>
+     <td>Home</td>
+  </tr>
+  
+ 
+</table>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- CONTRIBUTING -->
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### Code Splitting
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Related Project
+:rocket: [`Backend Balanjo`](https://github.com/Iqbalapredo/BE-BALANJO)
 
-### Making a Progressive Web App
+:rocket: [`Frontend Balanjo`](https://github.com/Iqbalapredo/FE-BALANJO)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+:rocket: [`Demo Balanjo`](https://fe-whats-app.vercel.app)
 
-### Advanced Configuration
+<!-- CONTACT -->
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+My Email : iqbalapreedo@gmail.com
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project Link: [https://github.com/Iqbalapredo/FE-BALANJO](https://github.com/Iqbalapredo/FE-BALANJO)
