@@ -94,7 +94,7 @@ REACT_BACKEND_API_URL = [BACKEND_URL]
 
   <tr>
     <td><img width="350px" src="./docBalanjo/orderSeller.png"  border="0" border="0" alt="3" /> </td>
-     <td><img width="350px" src="./docBalanjo/productSeller.png  border="0" border="0" alt="4" /></td>
+     <td><img width="350px" src="./docBalanjo/productSeller.png"  border="0" border="0" alt="4" /></td>
   </tr>
    <tr>
     <td>Order Sellers</td>
