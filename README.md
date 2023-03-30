@@ -63,7 +63,7 @@ git clone https://github.com/preedok/FE-BALANJO/.git
 ```
 - Go To Folder Repo
 ```
-cd hirejob-client
+cd FE-Balanjo
 ```
 - Install Module
 ```
