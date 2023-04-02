@@ -7,7 +7,7 @@
   <p align="center">
     <a href="https://github.com/preedok/FE-BALANJO/"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="/">View Demo</a>
+    <a href="https://balanjoyok.vercel.app/">View Demo</a>
     ·
     <a href="/">Report Bug</a>
     ·
@@ -80,7 +80,7 @@ REACT_BACKEND_API_URL = [BACKEND_URL]
 ```
 
 <!-- ROADMAP -->
-## Screenshots
+## Screenshots Pages
 
 <table>
  <tr>
@@ -155,7 +155,7 @@ Contributions are what make the open source community such an amazing place to b
 
 :rocket: [`Frontend Balanjo`](https://github.com/preedok/FE-BALANJO/)
 
-:rocket: [`Demo Balanjo`](/)
+:rocket: [`Demo Balanjo`](https://balanjoyok.vercel.app/)
 
 <!-- CONTACT -->
 ## Contact
