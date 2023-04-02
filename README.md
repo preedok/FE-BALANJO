@@ -91,15 +91,54 @@ REACT_BACKEND_API_URL = [BACKEND_URL]
     <td>Landing Page</td>
     <td>Login</td>
   </tr>
+   <tr>
+    <td><img width="350px" src="./docBalanjo/register.png"  border="0" border="0" alt="1" /></td>
+      <td><img width="350px" src="./docBalanjo/orderSeller.png"  border="0" border="0" alt="3" /> </td>
+  </tr>
+   <tr>
+    <td>Register</td>
+    <td>My Order Sellers</td>
+  </tr>
 
   <tr>
-    <td><img width="350px" src="./docBalanjo/orderSeller.png"  border="0" border="0" alt="3" /> </td>
+    <td><img width="350px" src="./docBalanjo/insertSeller.png"  border="0" border="0" alt="3" /> </td>
      <td><img width="350px" src="./docBalanjo/productSeller.png"  border="0" border="0" alt="4" /></td>
   </tr>
    <tr>
-    <td>Order Sellers</td>
+    <td>Insert Product Sellers</td>
      <td>Product Sellers</td>
   </tr>
+  
+   <tr>
+    <td><img width="350px" src="./docBalanjo/productDetail.png"  border="0" border="0" alt="3" /> </td>
+     <td><img width="350px" src="./docBalanjo/myBack.png"  border="0" border="0" alt="4" /></td>
+  </tr>
+   <tr>
+    <td>Detail Product</td>
+     <td>My Bag</td>
+  </tr>
+  
+    
+   <tr>
+    <td><img width="350px" src="./docBalanjo/checkout.png"  border="0" border="0" alt="3" /> </td>
+     <td><img width="350px" src="./docBalanjo/profileCostumer.png"  border="0" border="0" alt="4" /></td>
+  </tr>
+   <tr>
+    <td>Checkout Product</td>
+     <td>Profile Costumer</td>
+  </tr>
+  
+  
+    <tr>
+    <td><img width="350px" src="./docBalanjo/addressCostumer.png"  border="0" border="0" alt="3" /> </td>
+     <td><img width="350px" src="./docBalanjo/order.png"  border="0" border="0" alt="4" /></td>
+  </tr>
+   <tr>
+    <td>Address Costumer</td>
+     <td>Order Costumer</td>
+  </tr>
+  
+  
   
  
 </table>
