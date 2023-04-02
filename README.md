@@ -117,8 +117,6 @@ REACT_BACKEND_API_URL = [BACKEND_URL]
     <td>Detail Product</td>
      <td>My Bag</td>
   </tr>
-  
-    
    <tr>
     <td><img width="350px" src="./docBalanjo/checkout.png"  border="0" border="0" alt="3" /> </td>
      <td><img width="350px" src="./docBalanjo/profileCostumer.png"  border="0" border="0" alt="4" /></td>
@@ -127,9 +125,7 @@ REACT_BACKEND_API_URL = [BACKEND_URL]
     <td>Checkout Product</td>
      <td>Profile Costumer</td>
   </tr>
-  
-  
-    <tr>
+  <tr>
     <td><img width="350px" src="./docBalanjo/addressCostumer.png"  border="0" border="0" alt="3" /> </td>
      <td><img width="350px" src="./docBalanjo/order.png"  border="0" border="0" alt="4" /></td>
   </tr>
@@ -137,10 +133,6 @@ REACT_BACKEND_API_URL = [BACKEND_URL]
     <td>Address Costumer</td>
      <td>Order Costumer</td>
   </tr>
-  
-  
-  
- 
 </table>
 
 
