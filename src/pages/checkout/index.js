@@ -7,7 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-import {LineWave} from "react-loader-spinner";
+import { LineWave } from "react-loader-spinner";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -70,6 +70,14 @@ const Checkout = () => {
       });
   }, []);
 
+  const currencyFormat = (num) => {
+    return (
+      "Rp. " +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    );
+  };
   const payment = async () => {
     try {
       for (let i = 0; i < checkoutState.data.length; i++) {
@@ -106,12 +114,12 @@ const Checkout = () => {
     return (
       <div
         style={{
-          paddingLeft:'50px',
+          paddingLeft: "50px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          backgroundColor:'red'
+          backgroundColor: "red",
         }}
       >
         <LineWave
@@ -183,17 +191,21 @@ const Checkout = () => {
                   <h3 className={styles["card-summary"]}>Shopping summary</h3>
                   <h5 className={styles["order"]}>
                     Order
-                    <span className="d-flex justify-content-end">Rp {sum}</span>
+                    <span className="d-flex justify-content-end">
+                      {currencyFormat(sum)}
+                    </span>
                   </h5>
                   <h5 className={styles["delivery"]}>
                     Delivery
-                    <span className="d-flex justify-content-end">Rp 10000</span>
+                    <span className="d-flex justify-content-end">
+                      Rp 10.000
+                    </span>
                   </h5>
                   <hr />
                   <h3 className={styles["card-summary-bottom"]}>
                     Shopping summary
                     <span className="d-flex justify-content-end">
-                      Rp {sum + 10000}
+                      {currencyFormat(sum + 10000)}
                     </span>
                   </h3>
                   <button

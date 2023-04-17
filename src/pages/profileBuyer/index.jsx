@@ -6,7 +6,7 @@ import user from "../../assets/user-icon.svg";
 import location from "../../assets/location-icon.svg";
 import order from "../../assets/order-icon.svg";
 import Navbar from "../../component/module/NavbarConditon";
-import {LineWave} from "react-loader-spinner";
+import { LineWave } from "react-loader-spinner";
 import axios from "axios";
 import swal from "sweetalert";
 import DataTable from "react-data-table-component";
@@ -70,6 +70,15 @@ const ProfileBuyer = () => {
       .catch((err) => {
         alert("Update Failed");
       });
+  };
+
+  const currencyFormat = (num) => {
+    return (
+      "Rp. " +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    );
   };
 
   const hiddenFileInput = useRef(null);
@@ -289,7 +298,7 @@ const ProfileBuyer = () => {
     },
     {
       name: "Price",
-      selector: "price",
+      cell: (row) => <p className="mt-3">{currencyFormat(row.price)}</p>,
       sortable: true,
     },
 
@@ -300,7 +309,7 @@ const ProfileBuyer = () => {
     },
     {
       name: "Total",
-      selector: "total",
+      cell: (row) => <p className="mt-3">{currencyFormat(row.total)}</p>,
       sortable: true,
     },
     {
@@ -420,12 +429,12 @@ const ProfileBuyer = () => {
     return (
       <div
         style={{
-          paddingLeft:'50px',
+          paddingLeft: "50px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          backgroundColor:'red'
+          backgroundColor: "red",
         }}
       >
         <LineWave

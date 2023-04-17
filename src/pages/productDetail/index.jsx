@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./productDetail.module.css";
 import Navbar from "../../component/module/NavbarConditon";
-import {LineWave} from "react-loader-spinner";
+import { LineWave } from "react-loader-spinner";
 import icStar from "../../assets/icStar.svg";
 import icMinus from "../../assets/minus-icon.svg";
 import icPlus from "../../assets/plus-icon.svg";
@@ -10,7 +10,6 @@ import icBigstar from "../../assets/Star.svg";
 import CardProduct from "../../component/module/cardProduct";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
 
 // Import Swiper styles
 import "swiper/css";
@@ -27,7 +26,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import swal from "sweetalert";
 
 const ProductDetail = () => {
- 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   const [data, setData] = useState([]);
@@ -100,6 +98,16 @@ const ProductDetail = () => {
         alert("Failed");
       });
   };
+
+  const currencyFormat = (num) => {
+    return (
+      "Rp. " +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    );
+  };
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -110,12 +118,12 @@ const ProductDetail = () => {
     return (
       <div
         style={{
-          paddingLeft:'50px',
+          paddingLeft: "50px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          backgroundColor:'red'
+          backgroundColor: "red",
         }}
       >
         <LineWave
@@ -197,7 +205,9 @@ const ProductDetail = () => {
                 <div className={`ms-2 ${styles.textStar}`}>(10)</div>
               </div>
               <p className={`mt-4 ${styles.textPrice}`}>Price</p>
-              <p className={styles.textPricetag}>Rp {data.price}</p>
+              <p className={styles.textPricetag}>
+                {currencyFormat(data.price)}
+              </p>
               <p className={`mt-5 ${styles.textColor}`}>Color</p>
               <div className="d-flex flex-row">
                 <button className={`me-3 ${styles.colorBlack}`}> </button>

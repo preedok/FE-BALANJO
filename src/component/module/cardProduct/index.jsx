@@ -10,12 +10,20 @@ const CardProduct = ({
   priceProduct,
   sellerProduct,
 }) => {
+  const currencyFormat = (num) => {
+    return (
+      "Rp. " +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    );
+  };
   return (
     <>
       {/* {JSON.stringify(data)} */}
       <div className="col">
         <Link to={byId} className={styles.cstmLink}>
-          <div  className="card h-100 mx-1">
+          <div className="card h-100 mx-1">
             <img
               src={linkImage}
               className="card-img-top"
@@ -24,7 +32,9 @@ const CardProduct = ({
             />
             <div className="card-body " style={{ height: "130px" }}>
               <h5 className={styles.cardTitle}>{nameProduct}</h5>
-              <p className={styles.textPricecard}>Rp. {priceProduct}</p>
+              <p className={styles.textPricecard}>
+                {currencyFormat(priceProduct)}
+              </p>
               <p className={styles.textBrand}>{sellerProduct}</p>
               <div className="d-flex flex-row">
                 <img src={icStar} alt="icStar" />

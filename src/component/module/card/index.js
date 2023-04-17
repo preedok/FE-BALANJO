@@ -2,6 +2,14 @@ import React from "react";
 import styles from "./card.module.css";
 
 const Card = ({ title, storetitle, image, price, qty }) => {
+  const currencyFormat = (num) => {
+    return (
+      "Rp. " +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    );
+  };
   return (
     <>
       <div className="mt-3 ">
@@ -21,7 +29,7 @@ const Card = ({ title, storetitle, image, price, qty }) => {
                   <p>{storetitle}</p>
                 </div>
               </div>
-              <p className={styles["price"]}>Rp{price}</p>
+              <p className={styles["price"]}>{currencyFormat(price)}</p>
             </div>
           </div>
         </div>

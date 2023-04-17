@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./home.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import Carousel from "../../component/Carousel/index";
-import Category from "../../component/Category/index"
+import Category from "../../component/Category/index";
 import CardProduct from "../../component/module/cardProduct/index";
 import Navs from "../../component/module/NavbarConditon";
 import "./App.css";
@@ -83,6 +83,7 @@ const Home = () => {
   function toggleDarkMode() {
     setIsDarkMode(!isDarkMode);
   }
+
   return (
     <>
       <div className={`App ${isDarkMode ? "dark-mode" : "light-mode"}`}>
@@ -116,7 +117,7 @@ const Home = () => {
                   </p>
 
                   <div className="d-flex row">
-                    <Category/>
+                    <Category />
                   </div>
                 </div>
               </div>

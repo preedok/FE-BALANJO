@@ -9,12 +9,11 @@ import iconEmpety from "../../assets/no-product.png";
 import iconMyOrderEmpty from "../../assets/no-order.png";
 import searchIcon from "../../assets/search-icon.svg";
 import swal from "sweetalert";
-import {LineWave} from "react-loader-spinner";
+import { LineWave } from "react-loader-spinner";
 import Navbar from "../../component/module/NavbarConditon";
 import { useDispatch } from "react-redux";
 import { createProduct } from "../../redux/action/productAction";
 import { deleteProducts } from "../../redux/action/productAction";
-
 
 const ProfileSeller = () => {
   const navigate = useNavigate();
@@ -161,6 +160,14 @@ const ProfileSeller = () => {
     }
     getOwnProduct(query, sort, sortOrder, 3, page);
   };
+  const currencyFormat = (num) => {
+    return (
+      "Rp. " +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    );
+  };
 
   // ASCENDING
   const handleSortingAsc = () => {
@@ -292,12 +299,12 @@ const ProfileSeller = () => {
     return (
       <div
         style={{
-          paddingLeft:'50px',
+          paddingLeft: "50px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          backgroundColor:'red'
+          backgroundColor: "red",
         }}
       >
         <LineWave
@@ -383,7 +390,10 @@ const ProfileSeller = () => {
                     >
                       <div className="row">
                         <div className="col">
-                          <div style={{marginTop:'14px'}} className={styles.bgHome}>
+                          <div
+                            style={{ marginTop: "14px" }}
+                            className={styles.bgHome}
+                          >
                             <img
                               className={styles.iconHome}
                               src={iconHome}
@@ -707,7 +717,6 @@ const ProfileSeller = () => {
                             />
                           </div>
                           <div
-                            
                             className={`${styles.ss} col-md-12 text-center mt-3`}
                           >
                             <button
@@ -841,7 +850,7 @@ const ProfileSeller = () => {
                                   </td>
                                   <td>{data.name}</td>
                                   <td>{data.stock}</td>
-                                  <td>Rp. {data.price}</td>
+                                  <td>{currencyFormat(data.price)}</td>
                                   <td>
                                     {data.condition === 0 ? "Baru" : "Bekas"}
                                   </td>
@@ -1405,8 +1414,8 @@ const ProfileSeller = () => {
                                 </td>
                                 <td>{data.name}</td>
                                 <td>{data.qty}</td>
-                                <td>Rp. {data.price}</td>
-                                <td>Rp. {data.total}</td>
+                                <td>{currencyFormat(data.price)}</td>
+                                <td>{currencyFormat(data.total)}</td>
                                 <td>{data.buyer_name}</td>
                                 <td>
                                   {data.status === 0 ? (

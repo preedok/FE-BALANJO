@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-import {LineWave} from "react-loader-spinner";
+import { LineWave } from "react-loader-spinner";
 
 const Mybag = () => {
   const [bagState, setBagState] = useState([]);
@@ -76,6 +76,15 @@ const Mybag = () => {
     });
   };
 
+  const currencyFormat = (num) => {
+    return (
+      "Rp. " +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    );
+  };
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -86,12 +95,12 @@ const Mybag = () => {
     return (
       <div
         style={{
-          paddingLeft:'50px',
+          paddingLeft: "50px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          backgroundColor:'red'
+          backgroundColor: "red",
         }}
       >
         <LineWave
@@ -110,7 +119,6 @@ const Mybag = () => {
     );
   }
 
-  
   return (
     <>
       <Navbar />
@@ -148,7 +156,9 @@ const Mybag = () => {
                                 <p className={styles["sum"]}>{item.qty}</p>
                                 <button className={styles["circle"]}>+</button>
                               </div>
-                              <p className={styles["price"]}>Rp{item.price}</p>
+                              <p className={styles["price"]}>
+                                {currencyFormat(item.price)}
+                              </p>
                               <div className="float-item absolute">
                                 <button
                                   type="button"
@@ -174,7 +184,9 @@ const Mybag = () => {
                   <h3 className={styles["card-summary"]}>Shopping summary</h3>
                   <h5 className={styles["price"]}>
                     Total price
-                    <span className="d-flex justify-content-end">Rp {sum}</span>
+                    <span className="d-flex justify-content-end">
+                      {currencyFormat(sum)}
+                    </span>
                   </h5>
                   <button
                     onClick={() => {
