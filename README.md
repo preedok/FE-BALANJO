@@ -110,7 +110,7 @@ REACT_BACKEND_API_URL = [BACKEND_URL]
   </tr>
   
    <tr>
-    <td><img width="350px" src="https://ibb.co/Px8SQZx" border="0" border="0" alt="3" /> </td>
+    <td><img width="350px" src="https://i.ibb.co/MnLX6Dn/detalss.png" border="0" border="0" alt="3" /> </td>
      <td><img width="350px" src="./docBalanjo/myback.png"  border="0" border="0" alt="4" /></td>
   </tr>
    <tr>
